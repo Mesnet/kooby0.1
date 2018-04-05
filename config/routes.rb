@@ -1,3 +1,21 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  #User
+  devise_for :users
+  resources :userinfos
+
+  #Admin
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
+  # ROOT
+  authenticated :user do
+    root to: "pages#home", as: :authenticated_root
+  end
+  unauthenticated do
+    root 'pages#landing'
+  end
+
+  #Test Page
+  get "test" => "pages#test"
+
 end

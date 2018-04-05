@@ -1,0 +1,84 @@
+<div class="navbar">
+  <div class="navbar_left">
+    <div class="navbtn_r">
+      <a href="/" class='logo_btn'>
+        <%= image_tag "logo1.png", class: "logo"%>
+      </a>
+    </div>
+  </div>
+  <div class="navbar_center">
+    <a href="#1" class='navbtn nb_link active'>
+      <%= image_tag "home_w.png", class: "nb_picto"%>
+    </a>
+    <a href="#2" class='navbtn_r nb_link'>
+      <%= image_tag "task_w.png", class: "nb_picto"%>
+    </a>
+    <a href="#3" class='navbtn_r nb_link'>
+      <%= image_tag "calendar_w.png", class: "nb_picto"%>
+    </a>
+    <a href="#4" class='navbtn_r nb_link'>
+      <%= image_tag "cloud_w.png", class: "nb_picto2"%>
+    </a>
+  </div>
+  <div class="navbar_right">
+     <a href="#4" class='navbtn_l nb_link' style='padding-right: 10px; padding-left: 10px;'>
+      <%= image_tag "mail_w.png", class: "nb_picto2"%>
+    </a>
+    <div class="navbtn_l nb_link" id="btn_dropdown">
+      <%= image_tag "user1_w.png", class: "nb_picto"%>
+    </div>
+  </div>
+</div>
+<div class="nb_dropdown undisplay">
+  <%- if current_user.admin? %>
+  <a href="/admin" class="nb_dropdown_item">
+    <%= image_tag "admin.png", class: 'nb_dropdown_icon' %>
+    <div class="nb_dropdown_title">
+      Admin
+    </div>
+  </a>
+  <% end %>
+  <a href="#" class="nb_dropdown_item">
+    <%= image_tag "user1.png", class: 'nb_dropdown_icon' %>
+    <div class="nb_dropdown_title">
+      Profil
+    </div>
+  </a>
+  <a href="#" class="nb_dropdown_item">
+    <%= image_tag "building.png", class: 'nb_dropdown_icon' %>
+    <div class="nb_dropdown_title">
+      Entreprise
+    </div>
+  </a>
+  <a href="#" class="nb_dropdown_item">
+    <%= image_tag "adressbook.png", class: 'nb_dropdown_icon' %>
+    <div class="nb_dropdown_title">
+      Carnet d'adresse
+    </div>
+  </a>
+  <a href="#" class="nb_dropdown_item">
+    <%= image_tag "cog2.png", class: 'nb_dropdown_icon' %>
+    <div class="nb_dropdown_title">
+      Paramètres
+    </div>
+  </a>
+  <a href="/users/sign_out" data-method="delete" data-confirm="Vous nous quittez déjà ?" class="nb_dropdown_item">
+    <%= image_tag "power.png", class: 'nb_dropdown_icon' %>
+    <div class="nb_dropdown_title">
+      Deconnection
+    </div>
+  </a>
+</div>
+<script>
+  var container = $('.nb_dropdown')
+  // Open dropdown (btn)
+  $(document).ready(function () {
+    $('#btn_dropdown').on('click', function (event) {
+      container.slideToggle();
+    });
+  });
+  // If click out close dropdown
+  $(document).mouseup(function(e) {
+    if (!container.is(e.target) && container.has(e.target).length === 0) { container.hide(); }
+  });
+</script>

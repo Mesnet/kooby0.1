@@ -1,0 +1,38 @@
+<div class="navbar">
+  <div class="navbar_left">
+    <div class="navbtn_r">
+      <a href="#" class='logo_btn'>
+        <%= image_tag "logo1.png", class: "logo"%>
+      </a>
+    </div>
+  </div>
+  <div class="space"></div>
+  <div class="navbar_right">
+    <div class="navbtn_l nb_link" id="btn_dropdown">
+      <a href="#">
+        <%= image_tag "user1_w.png", class: "nb_picto"%>
+      </a>
+    </div>
+  </div>
+</div>
+<div class="nb_dropdown undisplay">
+  <a href="/users/sign_in" class="nb_dropdown_item">
+    <%= image_tag "login.png", class: 'nb_dropdown_icon' %>
+    <div class="nb_dropdown_title">
+      Connection
+    </div>
+  </a>
+  <a href="/users/sign_up" class="nb_dropdown_item">
+    <%= image_tag "userplus.png", class: 'nb_dropdown_icon' %>
+    <div class="nb_dropdown_title">
+      Inscription
+    </div>
+  </a>
+</div>
+<script>
+  $(document).ready(function () {
+    $('#btn_dropdown').on('click', function (event) {
+      $('.nb_dropdown').slideToggle();
+    });
+  });
+</script>

@@ -1,0 +1,194 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "materialize";
+@import "https://fonts.googleapis.com/icon?family=Material+Icons";
+@import "font-awesome";
+
+body{
+  padding-top: 80px;
+  background: #FAFAFA;
+  color: #5F5F5F;
+}
+
+a:hover {
+    background: none;
+}
+
+hr{
+  margin: 20px; 
+  border-top: 1px solid #d0d0d0;
+}
+
+.space{
+  width: 100%;
+}
+
+.undisplay{
+  display: none;
+}
+
+.modal-header{
+  text-align: center;
+  padding: 20px;
+  border-bottom: solid 1px #ddd;
+
+}
+
+.warning_box{
+  color: #f44236;
+  font-size: 15px;
+  display: inline-flex;
+}
+
+.warning_text{
+  margin-left: 10px;
+  margin-top: 3px;
+}
+
+/////////////////// - NAVBAR - //////////////////
+
+.navbar{
+  width: 100%;
+  height: 60px;
+  background: #19bdad;
+  position: fixed;
+  top: 0;
+  box-shadow: 0 2px 4px 0 rgba(159, 159, 159, 0.5);
+  display: inline-flex;
+  z-index: 99999;
+}
+
+.navbar2{
+  width: 100%;
+  height: 80px;
+  background: #19bdad;
+  position: fixed;
+  bottom: 0;
+  display: inline-block;
+  box-shadow: 0 2px 4px 0 rgba(159, 159, 159, 0.5);
+  display: inline-flex;
+}
+
+.navbar_left,
+.navbar_right{
+  width: auto;
+  display: inline-flex;
+}
+
+.navbar_center{
+  width: auto;
+  text-align: center;
+  display: inline-flex;
+  margin: auto;
+}
+
+.navbtn,
+.navbtn_r,
+.navbtn_l{
+  height: 60px;
+  width: 60px;
+  border-right: solid 0.5px #ffffffa8;
+  border-left: solid 0.5px #ffffffa8;
+  text-align: center; 
+}
+
+.navbtn_l{
+  border-right: none;
+}
+
+.navbtn_r{
+  border-left: none;
+}
+
+.nb_picto{
+  width: 25px;
+  padding-top: 20px;
+}
+
+.nb_picto2{
+  width: 30px;
+  padding-top: 17px;
+}
+
+.logo{
+  width: 35px;
+  margin-top: 13px;
+}
+
+.logobtn{
+  height: 60px;
+  width: 60px;
+  border-right: solid 0.5px white;
+  text-align: center; 
+}
+
+.nb_link{
+  &:hover {
+    background: #14b2a3;
+    cursor: pointer;
+  }
+}
+
+.nb_link.active{
+    background: #14b2a3;  
+}
+
+.nb_dropdown{
+  background: white;
+  width: 200px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin-top: 60px;
+  box-shadow: -1px 1px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.nb_dropdown_item{
+  width: 100%;
+  height: 50px;
+  border-bottom: solid 1px #19bdad;
+  display: block;
+  padding: 10px;
+  color: #5e5e5e;
+  font-size: 15px;
+  display: inline-flex;
+  &:hover {
+    background: #5ac9be;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+
+.nb_dropdown_icon{
+  width: 25px; 
+  height: 25px; 
+  margin-top: 2px;
+}
+
+.nb_dropdown_title{
+  margin-left: 10px; 
+  padding-top: 5px;
+}
+
+.pp_round_nav{
+  width: 50px;
+  height: 50px;
+  border-radius: 30px;
+  margin-left: 5px;
+  color: white;
+  font-size: 20px;
+  padding-top: 15px;
+}
