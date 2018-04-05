@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180405123735) do
+ActiveRecord::Schema.define(version: 20180405135333) do
+
+  create_table "user_emails", force: :cascade do |t|
+    t.string "email"
+    t.string "password"
+    t.boolean "linked", default: false
+    t.boolean "confirmed", default: false
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_user_emails_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.boolean "admin", default: false
