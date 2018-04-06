@@ -1,38 +1,39 @@
-<div class="navbar">
+<div class="navbar" style="background: #FAFAFA; opacity: 0.9;">
   <div class="navbar_left">
-    <div class="navbtn_r">
-      <a href="#" class='logo_btn'>
-        <%= image_tag "logo1.png", class: "logo"%>
-      </a>
-    </div>
+    <a href="/" class='logo_btn'>
+      <%= image_tag "logo6.png", class: "logo2"%>
+    </a>   
   </div>
   <div class="space"></div>
-  <div class="navbar_right">
-    <div class="navbtn_l nb_link" id="btn_dropdown">
-      <a href="#">
-        <%= image_tag "user1_w.png", class: "nb_picto"%>
-      </a>
+  <a class="waves-effect waves-light btn" style="width: 250px; margin: 12px;" id="modal_signin_btn"><i class="material-icons left">person</i>Connection</a>
+</div>
+<!-- Modal Sign In -->
+<div id="modal_signin" class="modal">
+  <div class="modal-header">
+    <h4>Connection</h4>
+  </div>
+  <div class="modal-content" style="text-align: center;">
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="email" type="email" class="validate">
+        <label for="email">Email</label>
+      </div>
     </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="password" type="password" class="validate">
+        <label for="password">Password</label>
+      </div>
+    </div>
+    <div style="display: flex; width: max-content; margin: auto;">
+      <p><input type="checkbox" id="myCheckbox"/><label for="myCheckbox"></label></p>
+      <p>Se souvenir de moi ?</p>
+    </div>
+    <a class="btn">C'est parti !</a>
+  </div>
+  <div class="modal-footer" style="text-align:left; display:flex; border-top: solid 1px #ddd;">
+    <a class="btn btn-flat modal-close"  style="padding-top: 2px;">Annuler</a>
+    <div class='space'></div>
+    <a class="btn blue lighten-1" style="min-width: 230px; padding-top: 2px;" id="modal_signup_btn">Pas encore inscrit ?</a>
   </div>
 </div>
-<div class="nb_dropdown undisplay">
-  <a href="/users/sign_in" class="nb_dropdown_item">
-    <%= image_tag "login.png", class: 'nb_dropdown_icon' %>
-    <div class="nb_dropdown_title">
-      Connection
-    </div>
-  </a>
-  <a href="/users/sign_up" class="nb_dropdown_item">
-    <%= image_tag "userplus.png", class: 'nb_dropdown_icon' %>
-    <div class="nb_dropdown_title">
-      Inscription
-    </div>
-  </a>
-</div>
-<script>
-  $(document).ready(function () {
-    $('#btn_dropdown').on('click', function (event) {
-      $('.nb_dropdown').slideToggle();
-    });
-  });
-</script>

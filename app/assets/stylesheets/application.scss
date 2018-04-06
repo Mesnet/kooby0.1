@@ -18,7 +18,7 @@
 @import "font-awesome";
 
 body{
-  padding-top: 80px;
+  padding-top: 60px;
   background: #FAFAFA;
   color: #5F5F5F;
 }
@@ -127,6 +127,11 @@ hr{
   width: 35px;
   margin-top: 13px;
 }
+.logo2{
+  width: 100px;
+  margin-top: 11px;
+  margin-left: 11px;
+}
 
 .logobtn{
   height: 60px;
@@ -191,4 +196,55 @@ hr{
   color: white;
   font-size: 20px;
   padding-top: 15px;
+}
+
+.modal-close{
+  &:hover {
+    background: #dc7473;
+    color: white;
+  }
+}
+
+/////////////////// - LANDING - //////////////////
+
+.parallax-container {
+  min-height: 380px;
+  line-height: 0;
+  height: auto;
+  color: rgba(255,255,255,.9);
+}
+  .parallax-container .section {
+    width: 100%;
+  }
+
+@media only screen and (max-width : 992px) {
+  .parallax-container .section {
+    position: absolute;
+    top: 40%;
+  }
+  #index-banner .section {
+    top: 10%;
+  }
+}
+
+@media only screen and (max-width : 600px) {
+  #index-banner .section {
+    top: 0;
+  }
+}
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+  font-size: inherit;
+}
+
+footer.page-footer {
+  margin: 0;
+}
+
+.parallax-container {
+    min-height: 450px;
+    padding-top: 70px;
 }
