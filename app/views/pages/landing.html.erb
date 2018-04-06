@@ -19,40 +19,6 @@
       <%= image_tag "background7.jpg"%>
     </div>
   </div>
-  <!-- Modal Sign Up -->
-  <div id="modal_signup" class="modal">
-    <div class="modal-header">
-      <h4>Inscription</h4>
-    </div>
-    <div class="modal-content" style="text-align: center;">
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="email" type="email" class="validate">
-          <label for="email">Email</label>
-        </div>
-        <div class="input-field col s12">
-          <input id="password" type="password" class="validate">
-          <label for="password">Password</label>
-        </div>
-
-        <div class="input-field col s12">
-          <input id="password" type="password" class="validate">
-          <label for="password">Password confirmation</label>
-        </div>
-      </div>
-      <div style="display: flex; width: max-content; margin: auto;">
-      <p><input type="checkbox" id="myCheckbox1"/><label for="myCheckbox1"></label></p>
-      <p>J'accepte les <a href="">conditions générales d'utilisation</a></p>
-    </div>
-      <a class="btn">C'est parti !</a>
-    </div>  
-    <div class="modal-footer" style="text-align:left; display:flex; border-top: solid 1px #ddd;">
-      <a class="btn btn-flat modal-close"  style="padding-top: 2px;">Annuler</a>
-      <div class='space'></div>
-      <a class="btn blue lighten-1"  id="modal_signin_btn2" style="min-width: 230px; padding-top: 2px;">Déjà inscrit ?</a>
-    </div>
-  </div>
-
   <div class="container">
     <div class="section">
 
@@ -170,14 +136,5 @@
 <script>
   $(document).ready(function () {
     $('.parallax').parallax();
-    $('.modal').modal();
-    $('#modal_signin_btn, #modal_signin_btn2').on('click', function (event) {
-      $('#modal_signup').modal('close');
-      $('#modal_signin').modal('open');
-    });
-    $('#modal_signup_btn').on('click', function (event) {
-      $('#modal_signin').modal('close');
-      $('#modal_signup').modal('open');
-    });
   });
 </script>
