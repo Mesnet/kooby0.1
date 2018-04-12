@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   #User
   devise_for :users
-  resources :userinfos
+  resources :user_infos
 
   #Admin
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'

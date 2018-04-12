@@ -1,2 +1,5 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<%- unless current_user.company? %>
+  <%- if current_user.pseudo.nil? %>
+    <%= render 'user_infos/new' %>
+  <% end %>
+<% end %>

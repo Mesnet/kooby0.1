@@ -1,7 +1,7 @@
 class CreateUserEmails < ActiveRecord::Migration[5.1]
   def change
     create_table :user_emails do |t|
-      t.string :email, nill: false
+      t.string :email, nill: false, unique: true
       t.string :password
       # If the mail is linked to a User account
       t.boolean :linked, default: false

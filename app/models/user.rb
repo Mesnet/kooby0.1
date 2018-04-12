@@ -6,16 +6,31 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   has_many :user_emails
+  has_one :user_info, dependent: :destroy
 
-  def emails 
+  def emails
     self.user_emails
-  end 
+  end
 
   private
 
   def sync_mail
+    # After user has confirmed his mail, we add that email into his user_email (status: confirmed) 
     if self.confirmed_at_changed?
-      UserEmail.create(user_id: self.id, email: self.email, confirmed: true)
+      # Find the user_mail corresponding to the user.mail
+      mail = UserEmail.where(email: self.email).first
+      #Check if this user_mail exist
+      if mail.any?
+        # Check if the user_mail is not already confirmed
+        if mail.user_id == nil
+          mail.update(user_id: self.id, confirmed: true)
+        else
+          #Send error and delete the current_user & warm the user related to the user_mail
+        end
+      else
+        UserEmail.create(user_id: self.id, email: self.email, confirmed: true)
+      end
+
     end
   end
 

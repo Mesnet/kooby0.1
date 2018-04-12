@@ -1,0 +1,40 @@
+<!-- Modal Structure -->
+<div class="modal" id="modal_userinfo">
+  <div class="modal-header">
+    <h4>Profil :</h4>
+  </div>
+  <div class="modal-content">
+  <%= simple_form_for(UserInfo.new, remote: true)  do |f| %>
+      <div class="row">
+        <div class="input-field col s6">
+          <%= f.text_field :first_name, class: "validate" %>
+          <label for="last_name">Prénom</label>
+        </div>
+        <div class="input-field col s6">
+          <%= f.text_field :second_name, class: "validate" %>
+          <label for="last_name">Nom</label>
+        </div>
+        <div class="input-field col s6">
+          <i class="material-icons prefix">account_circle</i>
+          <%= f.text_field :pseudo, class: "validate" %>
+          <label for="icon_prefix">Pseudo</label>
+        </div>
+        <div class="input-field col s6">
+          <i class="material-icons prefix">phone</i>
+          <%= f.text_field :phone, class: "validate" %>
+          <label for="icon_telephone">Telephone</label>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <%= f.button :submit, "Suivant" %>
+    </div>
+  <% end %>
+</div>
+<script>
+  $(document).ready(function(){
+    $('.modal').modal({
+      dismissible: false});
+    $('#modal_userinfo').modal('open');
+  });
+</script>
