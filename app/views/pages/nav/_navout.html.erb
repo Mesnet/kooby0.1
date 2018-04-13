@@ -42,42 +42,42 @@
   </div>
 </div>
 <!-- Modal Sign Up -->
-  <div id="modal_signup" class="modal" style="max-height: 100%;">
-    <div class="modal-header">
-      <h4>Inscription</h4>
-    </div>
-    <div class="modal-content" style="text-align: center;">
-      <div class="row" style=" padding: 0 20px; margin:0;">
-        <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-          <div class="input-field">
-            <%= f.label :email %>
-            <%= f.text_field :email, autofocus: true %>
-          </div>
-          <div class="input-field">
-            <%= f.label :password, 'Mot de passe' %>
-            <%= f.password_field :password, autocomplete: "off" %>
-          </div>
-          <div class="input-field">
-            <%= f.label :password, 'Confirmation mot de passe' %>
-            <%= f.password_field :password, autocomplete: "off" %>
-          </div>
-          <div style="display: flex; width: max-content; margin: auto;">
-            <p><input type="checkbox" id="myCheckbox1"/><label for="myCheckbox1"></label></p>
-            <p>J'accepte les <a href="">conditions générales d'utilisation</a></p>
-          </div>
-          <%= f.submit "Inscription", class: "btn" %>
-          <br>
-          <br>
-          <%= link_to "Vous n'avez pas recu le mail de confirmation ?", new_password_path(:user) %>
-        <% end %>
-      </div>
-    </div>
-    <div class="modal-footer" style="text-align:left; display:flex; border-top: solid 1px #ddd;">
-      <a class="btn btn-flat modal-close"  style="padding-top: 2px;">Annuler</a>
-      <div class='space'></div>
-      <a class="btn blue lighten-1"  id="modal_signin_btn2" style="min-width: 190px; padding-top: 2px;">Déjà inscrit ?</a>
+<div id="modal_signup" class="modal" style="max-height: 100%;">
+  <div class="modal-header">
+    <h4>Inscription</h4>
+  </div>
+  <div class="modal-content" style="text-align: center;">
+    <div class="row" style=" padding: 0 20px; margin:0;">
+      <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+        <div class="input-field">
+          <%= f.label :email %>
+          <%= f.text_field :email, autofocus: true %>
+        </div>
+        <div class="input-field">
+          <%= f.label :password, 'Mot de passe' %>
+          <%= f.password_field :password, autocomplete: "off" %>
+        </div>
+        <div class="input-field">
+          <%= f.label :password, 'Confirmation mot de passe' %>
+          <%= f.password_field :password, autocomplete: "off" %>
+        </div>
+        <div style="display: flex; width: max-content; margin: auto;">
+          <p><input type="checkbox" id="myCheckbox1"/><label for="myCheckbox1"></label></p>
+          <p>J'accepte les <a href="">conditions générales d'utilisation</a></p>
+        </div>
+        <%= f.submit "Inscription", class: "btn" %>
+        <br>
+        <br>
+        <%= link_to "Vous n'avez pas recu le mail de confirmation ?", new_password_path(:user) %>
+      <% end %>
     </div>
   </div>
+  <div class="modal-footer" style="text-align:left; display:flex; border-top: solid 1px #ddd;">
+    <a class="btn btn-flat modal-close"  style="padding-top: 2px;">Annuler</a>
+    <div class='space'></div>
+    <a class="btn blue lighten-1"  id="modal_signin_btn2" style="min-width: 190px; padding-top: 2px;">Déjà inscrit ?</a>
+  </div>
+</div>
 <script>
   $(document).ready(function () {
     $('.modal').modal();
