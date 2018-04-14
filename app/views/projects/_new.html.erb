@@ -1,0 +1,58 @@
+<!-- Modal Structure -->
+<div class="modal" id="ModalNewProject" style="width: 400px;">
+  <div class="modal-header">
+    <h4>Nouveau projet</h4>
+  </div>
+  <%= simple_form_for(Project.new, remote: true)  do |f| %>
+    <div class="modal-content">
+      <div class="row" style=" padding: 0 20px; margin:0;">
+        <div class="input-field">
+          <%= f.label :name, 'Nom du projet' %>
+          <%= f.text_field :name%>
+        </div>
+        <div class="form_title">
+          Accessibilité
+        </div>
+        <div class="round_radio_area">
+          <div class="round_radio active tooltipped" id="round_radio1" data-position="bottom" data-html="true"  data-tooltip="Le projet est ouvert, <br> tout le monde peut y accéder">
+            <i class="fa fa-unlock-alt round_radio_icon"></i>
+          </div>
+          <div class="round_radio tooltipped" id="round_radio2" data-position="bottom" data-html="true" data-tooltip="Le projet est fermé, seul les  <br> participants peuvent y accéder">
+            <i class="fa fa-lock round_radio_icon"></i>
+          </div>
+          <div class="round_radio tooltipped" id="round_radio3" data-position="bottom" data-html="true" data-tooltip="Le projet est secret, seul les  <br> participants peuvent le trouver">
+            <i class="fa fa-user-secret round_radio_icon"></i>
+          </div>
+        </div>
+        <%= f.hidden_field :cat, value: 1 %>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <%= f.submit "Créer", class: "btn" %>
+    </div>
+  <% end %>
+</div>
+<script>
+  $(document).ready(function(){
+    $('.modal').modal();
+    // Radio btn1
+    $('#round_radio1').on('click', function (event) {
+      $('#round_radio1').addClass('active');
+      $('.round_radio').not('#round_radio1').removeClass("active");
+      $('#project_cat').val(1)
+    });
+    // Radio btn2
+    $('#round_radio2').on('click', function (event) {
+      $('#round_radio2').addClass('active');
+      $('.round_radio').not('#round_radio2').removeClass("active");
+      $('#project_cat').val(2)
+    });
+    // Radio btn3
+    $('#round_radio3').on('click', function (event) {
+      $('#round_radio3').addClass('active');
+      $('.round_radio').not('#round_radio3').removeClass("active");
+      $('#project_cat').val(3)
+    });
+  });
+  
+</script>

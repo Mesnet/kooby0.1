@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  #Project
+  resources :projects
+
   #User
   devise_for :users
   resources :user_infos

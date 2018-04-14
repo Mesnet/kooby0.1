@@ -12,6 +12,14 @@ class User < ApplicationRecord
     self.user_emails
   end
 
+  def projects
+    self.emails.collect { |email| email.projects }.flatten
+  end
+
+  def projects_invitations
+    self.emails.collect { |email| email.projects_invitations }.flatten
+  end
+
   private
 
   def sync_mail

@@ -7,16 +7,16 @@
     </div>
   </div>
   <div class="navbar_center">
-    <a href="#1" class='navbtn nb_link active'>
+    <a href="#1" class='navbtn nb_link active tooltipped' data-position="bottom" data-tooltip="Panorama">
       <%= image_tag "home_w.png", class: "nb_picto"%>
     </a>
-    <a href="#2" class='navbtn_r nb_link'>
+    <a href="#2" class='navbtn_r nb_link tooltipped' data-position="bottom" data-tooltip="Tâches">
       <%= image_tag "task_w.png", class: "nb_picto"%>
     </a>
-    <a href="#3" class='navbtn_r nb_link'>
+    <a href="#3" class='navbtn_r nb_link tooltipped' data-position="bottom" data-tooltip="Evènements">
       <%= image_tag "calendar_w.png", class: "nb_picto"%>
     </a>
-    <a href="#4" class='navbtn_r nb_link'>
+    <a href="#4" class='navbtn_r nb_link tooltipped' data-position="bottom" data-tooltip="Fichiers">
       <%= image_tag "cloud_w.png", class: "nb_picto2"%>
     </a>
   </div>
@@ -71,11 +71,15 @@
 </div>
 <script>
   var container = $('.nb_dropdown')
-  // Open dropdown (btn)
   $(document).ready(function () {
+
+    // Open dropdown (btn)
+    
     $('#btn_dropdown').on('click', function (event) {
       container.slideToggle();
     });
+
+    $('.tooltipped').tooltip();
   });
   // If click out close dropdown
   $(document).mouseup(function(e) {

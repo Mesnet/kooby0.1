@@ -8,7 +8,7 @@
   <a class="waves-effect waves-light btn" style="width: 250px; margin: 12px;" id="modal_signin_btn"><i class="material-icons left">person</i>Connection</a>
 </div>
 <!-- Modal Sign In -->
-<div id="modal_signin" class="modal" style="max-height: 100%;">
+<div id="modal_signin" class="modal" style="max-height: 100%; width: 400px;">
   <div class="modal-header">
     <h4>Connection</h4>
   </div>
@@ -17,7 +17,7 @@
       <%= form_for(:user, :url => session_path(:user)) do |f| %>
         <div class="input-field">
           <%= f.label :email %>
-          <%= f.text_field :email, autofocus: true %>
+          <%= f.text_field :email %>
         </div>
         <div class="input-field">
           <%= f.label :password, 'Mot de passe' %>
@@ -38,11 +38,11 @@
   <div class="modal-footer" style="text-align:left; display:flex; border-top: solid 1px #ddd;">
     <a class="btn btn-flat modal-close"  style="padding-top: 2px;">Annuler</a>
     <div class='space'></div>
-    <a class="btn blue lighten-1" style="min-width: 260px; padding-top: 2px;" id="modal_signup_btn">Pas encore inscrit ?</a>
+    <a class="btn blue lighten-1" style="min-width: 200px; padding-top: 2px;" id="modal_signup_btn">Pas inscrit ?</a>
   </div>
 </div>
 <!-- Modal Sign Up -->
-<div id="modal_signup" class="modal" style="max-height: 100%;">
+<div id="modal_signup" class="modal" style="max-height: 100%; width: 400px;">
   <div class="modal-header">
     <h4>Inscription</h4>
   </div>
@@ -51,7 +51,7 @@
       <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
         <div class="input-field">
           <%= f.label :email %>
-          <%= f.text_field :email, autofocus: true %>
+          <%= f.text_field :email %>
         </div>
         <div class="input-field">
           <%= f.label :password, 'Mot de passe' %>

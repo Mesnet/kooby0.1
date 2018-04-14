@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  project: one
+  user_email: one
+  user: one
+  role: 1
+  notif: 1
+  mute: false
+
+two:
+  project: two
+  user_email: two
+  user: two
+  role: 1
+  notif: 1
+  mute: false

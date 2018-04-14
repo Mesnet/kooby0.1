@@ -1,0 +1,8 @@
+$('#project_name').val("")
+$('.round_radio').removeClass('active');
+$('#round_radio1').addClass('active');
+$('#project_cat').val(1)
+$('#ModalNewProject').modal('close');
+$('.projects').append("<%=  j render partial: 'projects/project', locals: {project: @project} %>"); 
+$('#sn_item<%= @project.id %>').hide();
+$('#sn_item<%= @project.id %>').slideDown();

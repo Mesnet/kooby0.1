@@ -11,13 +11,21 @@
   <body>
     <%- if user_signed_in? %>
       <%= render 'pages/nav/navin' %>
-      <%= render 'pages/nav/sidenav' unless @nonav %>
+      <%- if @nonav %>
+        <%= yield %>
+      <% else %>
+        <%= render 'pages/nav/sidenav' %>
+        <div class="main_body">
+          <%= yield %>
+        </div>
+      <% end %> 
+      
     <% else %>
       <%= render 'pages/nav/navout' %>
+      <%= yield %>
     <% end %>
     <% flash.each do |message_type, message| %>
       <%= javascript_tag "Materialize.toast('#{message}', 4000)" %>
     <% end %>
-    <%= yield %>
   </body>
 </html>

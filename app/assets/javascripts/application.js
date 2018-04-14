@@ -15,3 +15,4 @@
 //= require materialize-sprockets
 //= require_tree .
 
+$('.modal').modal();
