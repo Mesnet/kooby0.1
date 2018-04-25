@@ -9,6 +9,9 @@
   </head>
 
   <body>
+    <% flash.each do |message_type, message| %>
+      <%= javascript_tag "Materialize.toast('#{message}', 4000)" %>
+    <% end %>
     <%- if user_signed_in? %>
       <%= render 'pages/nav/navin' %>
       <%- if @nonav %>
@@ -24,8 +27,6 @@
       <%= render 'pages/nav/navout' %>
       <%= yield %>
     <% end %>
-    <% flash.each do |message_type, message| %>
-      <%= javascript_tag "Materialize.toast('#{message}', 4000)" %>
-    <% end %>
+    
   </body>
 </html>

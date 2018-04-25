@@ -1,0 +1,56 @@
+<div class="modal modal-fixed-header modal-fixed-nav" id="ModalProjectParams<%= @project.id %>">
+  <%= render 'projects/params/header' %>
+  <div class="modal-nav">
+    <div class="tab">
+      <div class="tablinks tooltipped" data-position="right" data-tooltip="Participants" id="defaultOpen" onclick="openTab(event, 'tab_1')">
+        <i class="material-icons tab_icon">group</i>
+      </div>
+      <%- if @admin %>
+        <div class="tablinks tooltipped" data-position="right" data-tooltip="Editer le group " onclick="openTab(event, 'tab_2')">
+          <i class="material-icons tab_icon">edit</i>
+        </div>
+      <% else %>
+        <div class="tablinks disabled">
+          <i class="material-icons tab_icon">edit</i>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="modal-content" style='padding: 0;'>
+    <div id="tab_1" class="tabcontent">
+      <%= render 'projects/params/users' %>
+    </div>
+
+    <%- if @admin %>
+      <div id="tab_2" class="tabcontent">
+        <%= render 'projects/params/edit' %>
+      </div>
+    <% end %>
+
+  </div>
+</div>
+
+<script>
+  $(document).ready(function () {
+    $('.tooltipped').tooltip();
+  });
+  // JS for tabs 
+  function openTab(evt, tabName) {
+    // Declare all variables
+    var i, tabcontent, tablinks;
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+  document.getElementById("defaultOpen").click();
+</script>

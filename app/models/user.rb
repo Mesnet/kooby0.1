@@ -12,12 +12,28 @@ class User < ApplicationRecord
     self.user_emails
   end
 
-  def projects
-    self.emails.collect { |email| email.projects }.flatten
+  def projects_notified
+    self.emails.collect { |email| email.projects_notified }.flatten
+  end
+
+  def projects_not_notified
+    self.emails.collect { |email| email.projects_not_notified }.flatten
+  end
+
+  def projects_mute
+    self.emails.collect { |email| email.projects_mute }.flatten
+  end
+
+  def projects_admin
+    self.emails.collect { |email| email.projects_admins }.flatten
   end
 
   def projects_invitations
     self.emails.collect { |email| email.projects_invitations }.flatten
+  end
+
+  def user_projects 
+    self.emails.collect { |email| email.projects }.to_a
   end
 
   private

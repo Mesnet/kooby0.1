@@ -10,13 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180414092140) do
+ActiveRecord::Schema.define(version: 20180425102216) do
+
+  create_table "email_projects", force: :cascade do |t|
+    t.string "email"
+    t.integer "role", default: 2
+    t.integer "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_email_projects_on_project_id"
+  end
 
   create_table "projects", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "cat", default: 1
+    t.text "description"
+    t.boolean "removed", default: false
   end
 
   create_table "user_emails", force: :cascade do |t|
@@ -50,6 +61,7 @@ ActiveRecord::Schema.define(version: 20180414092140) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "participate", default: false
+    t.integer "priority", default: 2
   end
 
   create_table "users", force: :cascade do |t|

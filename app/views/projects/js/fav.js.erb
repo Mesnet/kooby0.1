@@ -1,0 +1,4 @@
+$('.tooltipped').tooltip("close");
+$('#ModalProjectParamsHeader<%=@project.id%>').replaceWith("<%= j render partial: 'projects/params/header' %>");
+$('#sn_item<%= @project.id %>').replaceWith("<%= j render partial: 'projects/project', locals: {project: @project, user: @my_user} %>");
+$('.tooltipped').tooltip();

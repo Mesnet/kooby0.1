@@ -2,17 +2,25 @@
   <a class="sn_item_body" href="#">
     <div class="sn_item_title">
       <div class="sn_item_title_picto">
-        <%= image_tag "folder.png", class: "sn_picto"%>
+        <%- if user.priority == 1 %>
+          <i class="fa fa-star" style="font-size: 20px;"></i>
+        <%- elsif user.priority == 2 %>
+          <%= image_tag "folder.png", class: "sn_picto"%>
+        <%- elsif user.priority == 3 %>
+          <i class="material-icons">volume_off</i>
+        <% end %>
       </div>
       <div class="sn_item_title_name">
         <%= project.name %>
       </div>  
     </div>
   </a>
-  <a class="sn_item_btn" href="#2">
+  <a class="sn_item_btn" href="/projects/<%= project.id %>/open_params" data-method="patch" data-remote="true">
+    <%- unless user.notif == 0 %>
     <div class="sn_item_notif">
-      99
+      <%= user.notif %>
     </div>
+    <% end %>
     <%= image_tag "cog.png", class: "sn_item_cog"%>
   </a>
 </div>

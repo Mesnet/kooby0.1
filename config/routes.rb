@@ -1,7 +1,20 @@
 Rails.application.routes.draw do
 
+  resources :email_projects
+  resources :project_invitations
   #Project
-  resources :projects
+  resources :projects do 
+    member do
+      patch :open_params
+      patch :quit
+      patch :expel
+      patch :upd_role
+      patch :fav
+      patch :mute
+      patch :unfav
+      patch :unmute
+    end
+  end
 
   #User
   devise_for :users

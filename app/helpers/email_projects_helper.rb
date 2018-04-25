@@ -1,0 +1,2 @@
+module EmailProjectsHelper
+end

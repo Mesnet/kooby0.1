@@ -1,0 +1,77 @@
+<div style="padding: 20px; text-align: center;">
+  <%= simple_form_for(@project, remote: true)  do |f| %>
+    <div class="row" style=" padding: 0 20px; margin:0;">
+      <div class="input-field">
+        <%= f.label :name, 'Nom du projet', class: "active" %>
+        <%= f.text_field :name, id: "project_name#{@project.id}"%>
+      </div>
+
+      <div class="input-field">
+        <%- if @project.description.nil? %>
+          <%= f.label :description, 'Description' %>
+        <% else %> 
+          <%= f.label :description, 'Description', class: "active" %>
+        <% end %>
+        <%= f.text_area :description, class: 'materialize-textarea', style: "padding-bottom: 0;", id: "project_description#{@project.id}"%>
+      </div>
+
+      <div class="form_title">
+        Accessibilité
+      </div>
+      <div class="round_radio_area">
+        <%- if @project.cat == 1 %>
+          <div class="round_radio active tooltipped" id="round_radio4" data-position="bottom" data-html="true"  data-tooltip="Le projet est ouvert, <br> tout le monde peut y accéder">
+        <% else %>
+          <div class="round_radio tooltipped" id="round_radio4" data-position="bottom" data-html="true"  data-tooltip="Le projet est ouvert, <br> tout le monde peut y accéder">
+        <% end %>
+          <i class="fa fa-unlock-alt round_radio_icon"></i>
+        </div>
+        <%- if @project.cat == 2 %>
+          <div class="round_radio tooltipped active" id="round_radio5" data-position="bottom" data-html="true" data-tooltip="Le projet est fermé, seul les  <br> participants peuvent y accéder">
+        <% else %>
+          <div class="round_radio tooltipped" id="round_radio5" data-position="bottom" data-html="true" data-tooltip="Le projet est fermé, seul les  <br> participants peuvent y accéder">
+        <% end %>
+          <i class="fa fa-lock round_radio_icon"></i>
+        </div>
+        <%- if @project.cat == 3 %>
+          <div class="round_radio tooltipped active" id="round_radio6" data-position="bottom" data-html="true" data-tooltip="Le projet est secret, seul les  <br> participants peuvent le trouver">
+        <% else %>
+          <div class="round_radio tooltipped" id="round_radio6" data-position="bottom" data-html="true" data-tooltip="Le projet est secret, seul les  <br> participants peuvent le trouver">
+        <% end %>
+          <i class="fa fa-user-secret round_radio_icon"></i>
+        </div>
+      </div>
+      <%= f.hidden_field :cat, id: "project_cat#{@project.id}" %>
+    </div>
+    <%= f.submit "Editer le projet", class: "btn", style: "margin-top: 15px;" %>
+  <% end %>
+  <hr>
+  <a href='/projects/<%=@project.id%>' data-method="delete" data-remote="true" data-confirm="Etes vous sur de vouloir supprimer ce project ? ( Cette action est définitive )" class="waves-effect waves-light btn red lighten-1 center;" style="color: white;">
+    <i class="material-icons left">delete</i>Supprimer le projet
+  </a>
+</div> 
+
+<script>
+  $(document).ready(function(){
+    $('.modal').modal();
+    // Radio btn1
+    $('#round_radio4').on('click', function (event) {
+      $('#round_radio4').addClass('active');
+      $('.round_radio').not('#round_radio4').removeClass("active");
+      $('#project_cat<%=@project.id%>').val(1)
+    });
+    // Radio btn2
+    $('#round_radio5').on('click', function (event) {
+      $('#round_radio5').addClass('active');
+      $('.round_radio').not('#round_radio5').removeClass("active");
+      $('#project_cat<%=@project.id%>').val(2)
+    });
+    // Radio btn3
+    $('#round_radio6').on('click', function (event) {
+      $('#round_radio6').addClass('active');
+      $('.round_radio').not('#round_radio6').removeClass("active");
+      $('#project_cat<%=@project.id%>').val(3)
+    });
+  });
+  
+</script>

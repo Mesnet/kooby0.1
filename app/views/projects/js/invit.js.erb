@@ -1,0 +1,10 @@
+$('.users_project').append("<%= j render partial: 'projects/params/invited', locals: {user: @user} %>");
+$('#project_participant<%=@user.id%>').hide();
+$('#project_participant<%=@user.id%>').slideDown();
+$('#email_project_email').val('');
+
+$('.tooltipped').tooltip();
+
+$('#btn_dp_project_user<%= @user.id %>').on('click', function (event) {
+  $('#dp_project_user<%= @user.id %>').slideToggle();
+});

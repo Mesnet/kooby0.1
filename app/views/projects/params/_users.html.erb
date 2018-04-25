@@ -1,0 +1,35 @@
+<ul class="collection users_project" style='overflow: initial;'>
+  <% @participants.each do |participant| %>
+    <%= render "projects/params/user", user: participant %>
+  <% end %>
+  <% @inviteds.each do |invited| %>
+    <%= render "projects/params/invited", user: invited %>
+  <% end %>
+</ul>
+
+<%- if @admin %>
+  <div class="project_invitation_area">
+    <%= simple_form_for(EmailProject.new, remote: true)  do |f| %>
+      <div class="col s12">
+        <div class="row">
+          <div class="input-field col s12 inline">
+            <div class="input-field" style="width: 100%;">
+              <%= f.label :email, 'Inviter des personnes à rejoindre votre groupe', class: 'active' %>
+              <%= f.text_field :email, placeholder: "Contact, Groupe de contact ou email", class: "autocomplete" %>
+            </div>
+            <%= f.hidden_field :project_id, value: @project.id %>
+            <%= f.submit "Créer", class: "btn", style: "margin-top: 15px; margin-left: 5px;" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+<script>
+  $(document).ready(function () {
+    $('.btn_dp_project_user').on('click', function (event) {
+      $(this).next('.dp_project_user').slideToggle();
+    });
+  });
+</script>
+

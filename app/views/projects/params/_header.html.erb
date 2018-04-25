@@ -1,0 +1,21 @@
+<div class="modal-header inline" id="ModalProjectParamsHeader<%=@project.id%>">
+  <%- if @my_user.priority == 1 %>
+    <a href="/projects/<%=@project.id%>/unfav" data-method="patch" data-remote="true" class="project_fav_btn tooltipped" data-position="top" data-tooltip="Retirer le projet de vos favoris" >
+      <i class="fa fa-star project_fav_icon"></i>
+    </a>
+  <% else %>
+    <a href="/projects/<%=@project.id%>/fav" data-method="patch" data-remote="true" class="project_fav_btn tooltipped" data-position="top" data-tooltip="Ajouter le projet à vos favoris">
+      <i class="fa fa-star-o project_fav_icon"></i>
+    </a>
+  <% end %>
+  <h4 style="margin: auto; margin-top: 12px;"><%= @project.name%></h4>
+  <%- if @my_user.priority == 3 %>
+    <a href="/projects/<%=@project.id%>/unmute" data-method="patch" data-remote="true" class="project_mute_btn tooltipped" data-position="top" data-tooltip="Désactiver les notifications">
+      <i class="material-icons project_mute_icon">volume_off</i>
+    </a>
+  <% else %>
+    <a href="/projects/<%=@project.id%>/mute" data-method="patch" data-remote="true" class="project_mute_btn tooltipped" data-position="top" data-tooltip="Activer les notifications">
+      <i class="material-icons project_mute_icon">volume_up</i>
+    </a>
+  <% end %>
+</div>

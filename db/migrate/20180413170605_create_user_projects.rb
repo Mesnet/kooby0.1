@@ -5,7 +5,7 @@ class CreateUserProjects < ActiveRecord::Migration[5.1]
       t.references :user_email, foreign_key: true
       t.integer :role, default: 2
       t.integer :notif, default: 0
-      t.boolean :mute, default: false
+      t.integer :priority, default: 2
       t.boolean :participate, default: false
       
       t.timestamps

@@ -1,0 +1,9 @@
+<%- if @invited = true %>
+  $('#project_participant<%=@user.id%>').replaceWith("<%= j render partial: 'projects/params/invited', locals: {user: @user} %>");
+<% else %>
+  $('#project_participant<%=@user.id%>').replaceWith("<%= j render partial: 'projects/params/user', locals: {user: @user} %>");
+<% end %>
+$('.tooltipped').tooltip();
+$('#btn_dp_project_user<%= @user.id %>').on('click', function (event) {
+  $('#dp_project_user<%= @user.id %>').slideToggle();
+});

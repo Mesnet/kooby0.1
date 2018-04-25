@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Email Projects</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Cat</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @email_projects.each do |email_project| %>
+      <tr>
+        <td><%= email_project.email %></td>
+        <td><%= email_project.cat %></td>
+        <td><%= link_to 'Show', email_project %></td>
+        <td><%= link_to 'Edit', edit_email_project_path(email_project) %></td>
+        <td><%= link_to 'Destroy', email_project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Email Project', new_email_project_path %>

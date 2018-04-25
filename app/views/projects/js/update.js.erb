@@ -1,0 +1,2 @@
+$('#ModalProjectParams<%= @project.id %>').modal('close');
+$('#sn_item<%= @project.id %>').replaceWith("<%= j render partial: 'projects/project', locals: {project: @project, user: @my_user} %>");

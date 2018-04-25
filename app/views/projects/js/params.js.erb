@@ -1,0 +1,4 @@
+$('.ModalProjectParams').remove();
+$('body').prepend("<%=  j render partial: 'projects/params/modal' %>");
+$('.modal').modal();
+$('#ModalProjectParams<%=@project.id%>').modal('open');

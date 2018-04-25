@@ -15,77 +15,19 @@
     </div>
     <!-- /General item -->
     <div class="projects">
-      <% current_user.projects.each do |project| %>
-        <%= render 'projects/project', project: project  %>
+      <% current_user.projects_notified.each do |user_project| %>
+        <%= render 'projects/project', project: user_project.project, user: user_project %>
+      <% end %>
+      <% current_user.projects_not_notified.each do |user_project| %>
+        <%= render 'projects/project', project: user_project.project, user: user_project %>
+      <% end %>
+      <div class="new_project_zone">
+      </div>
+      <% current_user.projects_mute.each do |user_project| %>
+        <%= render 'projects/project', project: user_project.project, user: user_project %>
       <% end %>
     </div>
 
-    <div class="sn_item">
-      lulu
-    </div>
-    <div class="sn_item">
-      lulu
-    </div>
-    <div class="sn_item">
-      lulu
-    </div>
-    <div class="sn_item">
-      lulu
-    </div>
-    <div class="sn_item">
-      lulu
-    </div>
-    <div class="sn_item">
-      lulu
-    </div><div class="sn_item">
-      lulu
-    </div>
-    <div class="sn_item">
-      lulu
-    </div>
-    <div class="sn_item">
-      lulu
-    </div>
-    <div class="sn_item">
-      lulu
-    </div>
-    <div class="sn_item">
-      lulu
-    </div>
-    <div class="sn_item">
-      lulu
-    </div>
-    <div class="sn_item">
-      lulu
-    </div>
-    <div class="sn_item">
-      lulu
-    </div>
-    <div class="sn_item">
-      lulu
-    </div>
-
-    <div class="sn_item">
-      lulu
-    </div><div class="sn_item">
-      lulu
-    </div>
-
-    <div class="sn_item">
-      lulu
-    </div>
-    <div class="sn_item">
-      lulu
-    </div>
-    <div class="sn_item">
-      lulu
-    </div>
-    <div class="sn_item">
-      lulu
-    </div>
-    <div class="sn_item">
-      lulu
-    </div>
   </div>
   <a href="#ModalNewProject" class="sn_footer modal-trigger">
     Créer Projet

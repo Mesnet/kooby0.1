@@ -1,0 +1,95 @@
+<li class="collection-item project_params_user" id='project_participant<%=user.id%>'>
+  <%- if user == @my_user %>
+    <i class="material-icons project_wait_user">account_box</i>
+  <% end %>
+  <div class="space" style="padding-top: 3px;">
+    <!-- If the user is a friend replace the mail by his name -->
+    <%= user.email.email %>
+  </div>
+  <%- if user.role == 1 %>
+    <div class='btn_dp_project_user' id="btn_dp_project_user<%=user.id%>">
+      <div class='project_role_name'>
+        <i class="material-icons">account_circle</i>
+      </div>
+    </div>
+  <%- elsif user.role == 2 %>
+    <div class='btn_dp_project_user' id="btn_dp_project_user<%=user.id%>">
+      <div class='project_role_name'>
+        <i class="material-icons">edit</i>
+      </div>
+    </div>
+  <%- elsif user.role == 3 %>
+    <div class='btn_dp_project_user' id="btn_dp_project_user<%=user.id%>">
+      <div class='project_role_name'>
+        <i class="material-icons">remove_red_eye</i>
+      </div>
+    </div>
+  <% end %>
+  <%- if @admin %>
+    <div class="dp_project_user undisplay" id="dp_project_user<%=user.id%>">
+      <%- if user.role == 1 %>
+        <a class="dp_project_user_item active">
+      <% else %>
+        <a href="/projects/<%= @project.id%>/upd_role?userid=<%=user.id%>&role=1" data-remote="true" data-method='patch' class="dp_project_user_item">
+      <% end %>
+        <i class="material-icons project_user_icon" style='font-size: 20px; margin-right: 5px;'>account_circle</i>
+        <div>
+          Admin
+        </div>
+      </a>
+      <%- if user.role == 2 %>
+        <a class="dp_project_user_item active">
+      <% else %>
+        <a href="/projects/<%= @project.id%>/upd_role?userid=<%=user.id%>&role=2" data-remote="true" data-method='patch' class="dp_project_user_item">
+      <% end %>
+        <i class="material-icons project_user_icon">edit</i>
+        <div>
+          Editeur
+        </div>
+      </a>
+      <%- if user.role == 3 %>
+        <a class="dp_project_user_item active">
+      <% else %>
+        <a href="/projects/<%= @project.id%>/upd_role?userid=<%=user.id%>&role=3" data-remote="true" data-method='patch' class="dp_project_user_item">
+      <% end %>
+        <i class="material-icons project_user_icon">remove_red_eye</i>
+        <div>
+          Viewer
+        </div>
+      </a>
+      <%- if user == @my_user %>
+        <a href="/projects/<%= @project.id%>/quit?userid=<%=user.id%>" data-remote="true" data-method='patch' class="dp_project_user_item delete" data-confirm="Etes vous sur de vouloir quitter ce groupe ? Vous ne pourrez plus acceder à son contenu">
+          <i class="material-icons project_user_icon">delete</i>
+          <div>
+            Quitter
+          </div>
+        </a>
+      <% else %>
+        <a href="/projects/<%= @project.id%>/expel?userid=<%=user.id%>" data-remote="true" data-method='patch' class="dp_project_user_item delete" data-confirm="Confirmez vous la suppression de cet utilisateur ?">
+          <i class="material-icons project_user_icon">delete</i>
+          <div>
+            Supprimer
+          </div>
+        </a>
+      <% end %>
+    </div>
+  <% elsif user == @my_user %>
+    <div class="dp_project_user undisplay" id="dp_project_user<%=user.id%>">
+      <a href="/projects/<%= @project.id%>/quit?userid=<%=user.id%>" data-remote="true" data-method='patch' class="dp_project_user_item delete" data-confirm="Etes vous sur de vouloir quitter ce groupe ? Vous ne pourrez plus acceder à son contenu">
+        <i class="material-icons project_user_icon">delete</i>
+        <div>
+          Quitter
+        </div>
+      </a>
+    </div>
+  <% end %>
+</li>
+
+<script>
+  $(document).mouseup(function(e){
+    var container = $("#dp_project_user<%=user.id%>, #btn_dp_project_user<%=user.id%>");
+
+    if (!container.is(e.target) && container.has(e.target).length === 0) {$("#dp_project_user<%=user.id%>").slideUp();
+    }
+  });
+</script>
