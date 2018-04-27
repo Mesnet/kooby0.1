@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
-  resources :email_projects
-  resources :project_invitations
+  #Contacts
+  resources :contacts
+  patch "show_contacts" => "contacts#show_sn"
+
   #Project
   resources :projects do 
     member do
@@ -15,6 +17,8 @@ Rails.application.routes.draw do
       patch :unmute
     end
   end
+
+  resources :email_projects
 
   #User
   devise_for :users

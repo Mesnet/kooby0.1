@@ -1,0 +1,6 @@
+$('.contacts').remove();
+$('body').append("<%=  j render partial: 'contacts/sn/sn' %>"); 
+$('.contacts').hide();
+$('.contacts').animate({width:'toggle'},350);
+$('.nb_dropdown').slideUp();
+$(".main_body").css("margin-right","300px");

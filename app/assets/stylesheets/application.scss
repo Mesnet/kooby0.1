@@ -18,7 +18,6 @@
 @import "font-awesome";
 
 body{
-  margin-top: 60px;
   background: #FAFAFA;
   color: #5F5F5F;
 }
@@ -30,8 +29,7 @@ body{
   padding: 10px;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  height: calc(100% - 60px);
 }
 
 a:hover {
@@ -296,6 +294,10 @@ footer.page-footer {
   background: white;
   box-shadow: 0 2px 4px 0 rgba(159, 159, 159, 0.5);
   padding-bottom: 110px;
+  .main_body{
+    margin-left: 250px;
+    width: calc(100% - 250px);
+  }
 }
 
 .sn_footer{
@@ -621,4 +623,278 @@ footer.page-footer {
   font-size: 35px;
   margin: 13px;
   color: #5f5f5f;
+}
+
+/////////////////// - CONTACTS - //////////////////
+
+.contacts{
+  background: white;
+  width: 300px;
+  position: fixed;
+  top: 60px;
+  right: 0;
+  height: 100%;
+  z-index: 99;
+  box-shadow: 0 -2px 4px 0 rgba(159, 159, 159, 0.5);
+}
+
+.contacts_header{
+  border-bottom: solid 1px #e0e0e0;
+}
+
+.contacts_title{
+  margin: auto;
+  font-size: 20px;
+}
+
+.contacts_close_btn_icon{
+  font-size: 30px;
+  margin: 10px; 
+  color: #5f5f5f;
+  &:hover {
+    cursor: pointer;
+    opacity: 0.9;
+  }
+}
+
+.contacts_search_area{
+  border-bottom: solid 1px #e0e0e0;
+  width: 100%;
+  height: 50px;
+  display: none;
+}
+
+.contacts_search_padding{
+  display: none; 
+  width: 100%; 
+  height: 60px;
+}
+.contacts_select{
+  display: none;
+}
+
+.contacts_select_area{
+  width: 100%;
+  height: 40px;
+  display: flex;
+  background: #666666;
+  padding: 3px;
+  padding-top: 7px;
+  color: white;
+}
+
+.contacts_select_btn_close{
+  width: 30px;
+  opacity: 0.8;
+  &:hover {
+    cursor: pointer;
+    opacity: 0.5;
+  }
+}
+
+.contacts_select_num,
+.contacts_select_title{
+  margin: 3px;
+  font-size: 15px;
+  font-family: lato-light;
+}
+
+.contacts_select_title{
+  width: 100%;
+}
+
+.contacts_select_btn_menu{
+  opacity: 0.8;
+  &:hover {
+    cursor: pointer;
+    opacity: 0.5;
+  }
+}
+
+.contact_select_area_menu{
+  display: none;
+  position: fixed;
+  right: 0;
+  width: 100px;
+  box-shadow: 0 2px 4px 0 rgba(159, 159, 159, 0.5);
+  background: white;
+}
+
+.contact_select_item_menu{
+  display: block;
+  width: 100%;
+  height: 35px;
+  border-bottom: solid 1px #e0e0e0;
+  display: flex;
+  padding-top: 3px;
+  &:hover {
+    cursor: pointer;
+    background: #e0e0e0;
+    color: #666666;
+  }
+}
+
+.contacts_sub_header{
+  width: 100%;
+  height: 30px;
+  background: #f5f5f5;
+  display: flex;
+}
+
+.contacts_sub_header_item{
+  width: 33%;
+  text-align: center;
+  display: flex;
+  &:hover {
+    cursor: pointer;
+    background: #d0d0d0;
+    color: #666666 !important;
+  }
+}
+
+.contacts_sub_header_item.active{
+  background: #d0d0d0;
+}
+
+.contacts_sub_header_item_content{
+  width: max-content; 
+  margin: auto;
+  display: flex;
+}
+
+.contacts_sub_header_item_title{
+  margin-left: 5px;
+  margin-top: 2px;
+}
+
+.contacts_add_btn{
+  background: #19bdad;
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 10px;
+  box-shadow: 0 2px 4px 0 rgba(159, 159, 159, 0.5);
+  &:hover {
+    cursor: pointer;
+    opacity: 0.9;
+    box-shadow: 0 0px 4px 0 rgba(159, 159, 159, 0.5);
+  }
+}
+
+.contacts_body{
+  height: calc(100% - 140px);
+  overflow: scroll;
+  padding-bottom: 60px;
+}
+
+.contact{
+  height: 41px;
+  border-bottom: solid 1px #e0e0e0;
+  display: flex;
+}
+
+.contact.active{
+  background: #9e9e9e40;
+}
+
+.contact_square,
+.contact_square_in{
+  height: 30px;
+  width: 30px;
+  margin: 5px;
+  padding-top: 3px;
+  &:hover {
+    color: #666666;
+    cursor: pointer;
+  }
+}
+
+.contact_dp_btn_info{
+  font-size: 15px;
+  width: 100%;
+  padding-top: 11px;
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+}
+
+.contact_dp_btn{
+  height: 40px;
+  width: 40px;
+  min-width: 40px;
+  max-height: 40px;
+  font-size: 25px;
+  padding: 7px;
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+}
+
+.contact_dp{
+  position: fixed;
+  right: 0;
+  margin-top: 40px;
+  width: 100px;
+  box-shadow: 0 2px 4px 0 rgba(159, 159, 159, 0.5);
+  background: white;
+}
+
+.contact_dp_item{
+  width: 100%;
+  height: 35px;
+  display: block;
+  border-bottom: solid 1px #e0e0e0;
+  display: flex;
+  padding-top: 3px;
+  &:hover {
+    cursor: pointer;
+    background: #e0e0e0;
+    color: #666666;
+  }
+}
+
+.dp_contact_icon{
+  font-size: 20px;
+  margin: 5px;
+}
+
+.dp_contact_title{
+  margin: 5px;
+}
+
+.contact_dp_info{
+  width: 100%;
+  border-bottom: solid 1px #e0e0e0;
+}
+
+.contact_dp_info_line{
+  border-bottom: solid 1px #e0e0e04a;
+  width: 100%;
+  display: flex;
+  padding: 10px;
+}
+
+.contact_dp_info_line_50{
+  width: 50%;
+  display: flex;
+}
+
+.btn_contact{
+  padding: 5px 10px;
+  margin: auto;
+  border-radius: 5px;
+  border: solid 1px #d0d0d0;
+  color: #666666;
+  &:hover {
+    cursor: pointer;
+    background: #e0e0e0;
+    color: #666666;
+  }
 }

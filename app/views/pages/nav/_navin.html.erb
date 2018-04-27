@@ -50,7 +50,7 @@
       Entreprise
     </div>
   </a>
-  <a href="#" class="nb_dropdown_item">
+  <a href="/show_contacts" data-method='patch' data-remote="true" class="nb_dropdown_item">
     <%= image_tag "adressbook.png", class: 'nb_dropdown_icon' %>
     <div class="nb_dropdown_title">
       Carnet d'adresse
@@ -70,19 +70,18 @@
   </a>
 </div>
 <script>
-  var container = $('.nb_dropdown')
+  var container = $('.nb_dropdown, #btn_dropdown')
   $(document).ready(function () {
 
     // Open dropdown (btn)
     
     $('#btn_dropdown').on('click', function (event) {
-      container.slideToggle();
+      $('.nb_dropdown').slideToggle();
     });
-
     $('.tooltipped').tooltip();
   });
   // If click out close dropdown
   $(document).mouseup(function(e) {
-    if (!container.is(e.target) && container.has(e.target).length === 0) { container.hide(); }
+    if (!container.is(e.target) && container.has(e.target).length === 0) { $('.nb_dropdown').slideUp(); }
   });
 </script>

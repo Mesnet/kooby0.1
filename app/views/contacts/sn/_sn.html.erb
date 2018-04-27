@@ -1,0 +1,165 @@
+<div class="contacts">
+  <div class="contacts_header inline">
+    <div class="contacts_close_btn">
+      <i class="material-icons contacts_close_btn_icon">close</i>
+    </div>
+    <div class="contacts_title">
+      Repertoire
+    </div>
+    <div class="contacts_search_btn">
+      <i class="material-icons contacts_close_btn_icon">search</i>
+    </div>
+  </div>
+  <div class="contacts_sub_header">
+    <a href="#" class="contacts_sub_header_item active">
+      <div class="contacts_sub_header_item_content">
+        <div class="contacts_sub_header_item_title">
+          Contacts
+        </div>
+      </div>
+    </a>
+    <a href="#" class="contacts_sub_header_item">
+      <div class="contacts_sub_header_item_content">
+        <div class="contacts_sub_header_item_title">
+          Groupes
+        </div>
+      </div>
+    </a>
+
+    <a href="#" class="contacts_sub_header_item">
+      <div class="contacts_sub_header_item_content">
+        <div class="contacts_sub_header_item_title">
+          Entreprises
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <div class="contacts_search_area">
+    here is the search
+  </div>
+
+  <div class='contacts_select'>
+
+    <div class="contacts_select_area undisplay">
+      <div class="contacts_select_btn_close">
+        <i class="material-icons">close</i>
+      </div>
+      <div class="contacts_select_num">
+        0
+      </div>
+      <div class="contacts_select_title">
+        Contact(s) séléctionné(s)
+      </div>
+      <div class="contacts_select_btn_menu">
+        <i class="material-icons">more_vert</i>
+      </div>
+    </div>
+    <div class="contact_select_area_menu">
+      <a href='#' class="contact_select_item_menu">
+        <i class="material-icons dp_contact_icon">email</i>
+        <div class="dp_contact_title">
+          Mail
+        </div>
+      </a>
+      <a href='#' class="contact_select_item_menu">
+        <i class="material-icons dp_contact_icon">chat</i>
+        <div class="dp_contact_title">
+          Chat
+        </div>
+      </a>
+      <a href='#' class="contact_select_item_menu">
+        <i class="material-icons dp_contact_icon">reply</i>
+        <div class="dp_contact_title">
+          Partager
+        </div>
+      </a>
+
+    </div>
+  </div>
+  <div class="contacts_body">
+
+
+    <%= render 'contacts/sn/contact' %>
+   
+
+    <div class="contacts_search_padding"></div>
+    <div class="contacts_add_btn">
+      <i class="material-icons" style="font-size: 30px;">add</i>
+    </div>
+  </div>
+  
+</div>
+<script>
+  $(document).ready(function () {
+    // Close the contacts
+    $('.contacts_close_btn').on('click', function (event) {
+      $('.contacts').hide(function() { $(this).remove(); });   
+      $(".main_body").css("margin-right","0px");
+    });
+
+    // Display search area
+    $('.contacts_search_btn').on('click', function (event) {
+      $('.contacts_search_area, .contacts_search_padding, .contacts_sub_header').slideToggle();
+    });
+
+    // Select contact
+    $('.contact_square').on('click', function (event) {
+      $(this).closest('.contact').addClass('active');
+      $(this).addClass('undisplay');
+      $(this).next('.contact_square_in').removeClass('undisplay');
+      $(this).next().next().next('.contact_dp_btn').addClass('undisplay');
+      //Update num elements selected
+      var el = parseInt($('.contacts_select_num').text());
+      if(el == 0){
+        $('.contacts_select').slideDown();
+        $('.contacts_sub_header, .contacts_search_area').slideUp();
+      }
+      $('.contacts_select_num').text(el+1);
+    });
+
+    // UnSelect contact
+    $('.contact_square_in').on('click', function (event) {
+      $(this).closest('.contact').removeClass('active');
+      $(this).addClass('undisplay');
+      $(this).prev('.contact_square').removeClass('undisplay');
+      $(this).next().next('.contact_dp_btn').removeClass('undisplay');
+      //Update num elements selected
+      var el = parseInt($('.contacts_select_num').text());
+      if(el == 1){
+        $('.contacts_select').slideUp();
+        $('.contacts_sub_header').slideDown();
+      }
+      $('.contacts_select_num').text(el-1);
+    });
+
+    // Close selection
+    $('.contacts_select_btn_close').on('click', function (event) {
+      $('.contact').removeClass('active');
+      $('.contact_square').removeClass('undisplay');
+      $('.contact_square_in').addClass('undisplay');
+      $('.contact_dp_btn').removeClass('undisplay');
+      $('.contacts_select_num').text(0)
+      $('.contacts_select').slideUp();
+      $('.contacts_sub_header').slideDown();
+    });
+
+    // Dp menu selected
+     $('.contacts_select_btn_menu').on('click', function (event) {
+      $('.contact_select_area_menu').slideToggle();
+    });
+
+    // Dp menu
+    $('.contact_dp_btn').on('click', function (event) {
+      $(this).next('.contact_dp').slideToggle();
+    });
+
+    // Dp info
+    $('.contact_dp_btn_info').on('click', function (event) {
+      var dp_info = $(this).closest('.contact').next('.contact_dp_info')
+      dp_info.slideToggle();
+      $('.contact_dp_info').not(dp_info).slideUp();
+
+    });
+  });
+</script>
