@@ -1,5 +1,5 @@
 <div class="sn_item" id='sn_item<%= project.id %>'>
-  <a class="sn_item_body" href="#">
+  <a class="sn_item_body" id="sn_item_body<%= project.id %>">
     <div class="sn_item_title">
       <div class="sn_item_title_picto">
         <%- if user.priority == 1 %>
@@ -23,4 +23,25 @@
     <% end %>
     <%= image_tag "cog.png", class: "sn_item_cog"%>
   </a>
+  <script>
+    $(document).ready(function () {
+      var pathname = window.location.pathname
+      var project = pathname.split("/")[2]
+      // Active links
+      if(project == "<%= project.id %>") {
+        $('#sn_item<%=project.id%>').addClass('active');
+      }
+      // href route
+      if(pathname == '/' || pathname == '/projects/'+project){
+        $('#sn_item_body<%=project.id%>').attr('href', '/projects/<%=project.id%>');
+      }
+      else if(pathname == '/tasks' || pathname == '/projects/'+project+'/taskboard'){
+        $('#sn_item_body<%=project.id%>').attr('href', '/projects/<%=project.id%>/taskboard');
+      }
+      else if(pathname == '/events' || pathname == '/projects/'+project+'/calendar'){
+        $('#sn_item_body<%=project.id%>').attr('href', '/projects/<%=project.id%>/calendar');
+      }
+    });
+  </script>
 </div>
+

@@ -7,16 +7,16 @@
     </div>
   </div>
   <div class="navbar_center">
-    <a href="#1" class='navbtn nb_link active tooltipped' data-position="bottom" data-tooltip="Panorama">
+    <a href="#1" class='navbtn nb_link tooltipped' id="nb_link1" data-position="bottom" data-tooltip="Panorama">
       <%= image_tag "home_w.png", class: "nb_picto"%>
     </a>
-    <a href="#2" class='navbtn_r nb_link tooltipped' data-position="bottom" data-tooltip="Tâches">
+    <a href="#2" class='navbtn_r nb_link tooltipped' id="nb_link2" data-position="bottom" data-tooltip="Tâches">
       <%= image_tag "task_w.png", class: "nb_picto"%>
     </a>
-    <a href="#3" class='navbtn_r nb_link tooltipped' data-position="bottom" data-tooltip="Evènements">
+    <a href="#3" class='navbtn_r nb_link tooltipped' id="nb_link3" data-position="bottom" data-tooltip="Evènements">
       <%= image_tag "calendar_w.png", class: "nb_picto"%>
     </a>
-    <a href="#4" class='navbtn_r nb_link tooltipped' data-position="bottom" data-tooltip="Fichiers">
+    <a href="#4" class='navbtn_r nb_link tooltipped' id="nb_link4" data-position="bottom" data-tooltip="Fichiers">
       <%= image_tag "cloud_w.png", class: "nb_picto2"%>
     </a>
   </div>
@@ -70,18 +70,66 @@
   </a>
 </div>
 <script>
-  var container = $('.nb_dropdown, #btn_dropdown')
+  
   $(document).ready(function () {
-
+    $('.tooltipped').tooltip();
     // Open dropdown (btn)
-    
     $('#btn_dropdown').on('click', function (event) {
       $('.nb_dropdown').slideToggle();
     });
-    $('.tooltipped').tooltip();
+    // href & highlight div
+    var pathname = window.location.pathname;
+    var project = pathname.split("/")[2]
+    if(pathname == '/'){
+       $('#nb_link1').addClass('active')
+       $('#nb_link2').attr('href', '/tasks')
+       $('#nb_link3').attr('href', '/events')
+       $('#nb_link4').attr('href', '/clouds')
+    } else if(pathname == '/projects/'+ project ){
+       $('#nb_link1').addClass('active')
+       $('#nb_link2').attr('href', '/projects/'+project+'/taskboard')
+       $('#nb_link3').attr('href', '/projects/'+project+'/calendar')
+       $('#nb_link4').attr('href', '/projects/'+project+'/cloud')
+    } else if(pathname == '/tasks'){
+      $('#nb_link1').attr('href', '/')
+      $('#nb_link2').addClass('active')
+      $('#nb_link3').attr('href', '/events')
+      $('#nb_link4').attr('href', '/clouds')
+    } else if(pathname == '/projects/'+ project +'/taskboard'){
+      $('#nb_link1').attr('href', '/projects/'+project)
+      $('#nb_link2').addClass('active')
+      $('#nb_link3').attr('href', '/projects/'+project+'/calendar')
+      $('#nb_link4').attr('href', '/projects/'+project+'/cloud')
+    } else if(pathname == '/events'){
+      $('#nb_link1').attr('href', '/')
+      $('#nb_link2').attr('href', '/tasks')
+      $('#nb_link3').addClass('active')
+      $('#nb_link4').attr('href', '/clouds')
+    } else if(pathname == '/projects/'+project+'/calendar'){
+      $('#nb_link1').attr('href', '/projects/'+project)
+      $('#nb_link2').attr('href', '/projects/'+project+'/taskboard')
+      $('#nb_link3').addClass('active')
+      $('#nb_link4').attr('href', '/projects/'+project+'/cloud')
+    }else if(pathname == '/clouds'){
+      $('#nb_link1').attr('href', '/')
+      $('#nb_link2').attr('href', '/tasks')
+      $('#nb_link3').attr('href', '/events')
+      $('#nb_link4').addClass('active')
+    } else if(pathname == '/projects/'+project+'/cloud'){
+      $('#nb_link1').attr('href', '/projects/'+project)
+      $('#nb_link2').attr('href', '/projects/'+project+'/taskboard')
+      $('#nb_link3').attr('href', '/projects/'+project+'/calendar')
+      $('#nb_link4').addClass('active')
+    } else {
+      $('#nb_link1').attr('href', '/')
+      $('#nb_link2').attr('href', '/tasks')
+      $('#nb_link3').attr('href', '/events')
+      $('#nb_link4').attr('href', '/clouds')
+    }
   });
   // If click out close dropdown
   $(document).mouseup(function(e) {
+    var container = $('.nb_dropdown, #btn_dropdown')
     if (!container.is(e.target) && container.has(e.target).length === 0) { $('.nb_dropdown').slideUp(); }
   });
 </script>

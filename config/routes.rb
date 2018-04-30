@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   #Project
   resources :projects do 
     member do
+      # For Params
       patch :open_params
       patch :quit
       patch :expel
@@ -17,6 +18,10 @@ Rails.application.routes.draw do
       patch :mute
       patch :unfav
       patch :unmute
+      # For each features
+      get :taskboard
+      get :calendar
+      get :cloud
     end
   end
 

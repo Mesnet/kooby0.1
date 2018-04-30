@@ -6,6 +6,18 @@ class ProjectsController < ApplicationController
   before_action :set_user, only: [:quit, :expel, :upd_role]
   # Admin, only: [:expel, :upd_role, :update, :destroy]
 
+  def show 
+  end
+
+  def taskboard 
+  end
+
+  def calendar 
+  end
+
+  def cloud 
+  end
+
   def mute
     @my_user.update(priority: 3)
     respond_to do |format|
@@ -148,6 +160,9 @@ class ProjectsController < ApplicationController
 
     def set_my_user_project
       @my_user = @project.participants.where(user_email_id: current_user.emails).first
+      if @my_user.nil?
+        redirect_to root_path, :flash => { :notice => "Insufficient rights !" }
+      end
     end
 
     def my_user_admin
