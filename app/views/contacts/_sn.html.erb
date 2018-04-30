@@ -1,0 +1,65 @@
+<div class="repository">
+  <div class="repo_header inline">
+    <div class="repo_close_btn">
+      <i class="material-icons repo_close_btn_icon">close</i>
+    </div>
+    <div class="repo_title">
+      Repertoire
+    </div>
+    <div class="repo_search_btn">
+      <i class="material-icons repo_close_btn_icon">search</i>
+    </div>
+  </div>
+  <div class="repo_sub_header">
+    <a href="/show_contacts" data-method="patch" data-remote="true" class="repo_sub_header_item active">
+      <div class="repo_sub_header_item_content">
+        <div class="repo_sub_header_item_title">
+          Contacts
+        </div>
+      </div>
+    </a>
+    <a href="/show_groups" data-method="patch" data-remote="true" class="repo_sub_header_item">
+      <div class="repo_sub_header_item_content">
+        <div class="repo_sub_header_item_title">
+          Groupes
+        </div>
+      </div>
+    </a>
+
+    <a href="/show_companies" data-method="patch" data-remote="true" class="repo_sub_header_item">
+      <div class="repo_sub_header_item_content">
+        <div class="repo_sub_header_item_title">
+          Entreprises
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <div class="repo_search_area">
+    here is the search
+  </div>
+  <div class="repository_body">
+  </div>
+  <div class="repo_search_padding"></div>
+</div>
+
+<script>
+  $(document).ready(function () {
+    // Nav tabs
+    $('.repo_sub_header_item').on('click', function (event) {
+      $(this).addClass('active');
+      $('.repo_sub_header_item').not(this).removeClass('active')
+    });
+
+    // Close the contacts
+    $('.repo_close_btn').on('click', function (event) {
+      $('.repository').hide(function() { $(this).remove(); });   
+      $(".main_body").css("margin-right","0px");
+    });
+    // Display search area
+    $('.repo_search_btn').on('click', function (event) {
+      $('.repo_search_area, .repo_search_padding, .repo_sub_header').slideToggle();
+    }); 
+
+  });
+</script>

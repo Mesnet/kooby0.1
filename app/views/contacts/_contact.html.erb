@@ -1,0 +1,143 @@
+<div id="contact_iter<%=contactid%>">
+  <!-- Contact item -->
+  <div class="contact">
+    <div class="contact_square">
+      <i class="material-icons">crop_square</i>
+    </div>
+    <div class="contact_square_in undisplay">
+      <i class="material-icons">check_box</i>
+    </div>
+    <div class="contact_dp_btn_info" id="contact_dp_btn_info<%=contactid%>">
+      Jose Garcia
+    </div>
+    <div class="contact_dp_btn" id="contact_dp_btn<%=contactid%>">
+      <i class="material-icons">more_vert</i>
+    </div>
+    <!-- /Contact dp menu -->
+    <div class="contact_dp undisplay" id="contact_dp<%=contactid%>">
+      <!-- if the user have a mail -->
+      <a href="#" class="contact_dp_item">
+        <i class="material-icons dp_contact_icon">email</i>
+        <div class="dp_contact_title">
+          Mail
+        </div>
+      </a>
+      <!-- if the user have the app -->
+      <a href="#" class="contact_dp_item">
+        <i class="material-icons dp_contact_icon">chat</i>
+        <div class="dp_contact_title">
+          Chat
+        </div>
+      </a>
+      <!-- if the user have a phone -->
+      <a href="#" class="contact_dp_item">
+        <i class="material-icons dp_contact_icon">phone</i>
+        <div class="dp_contact_title">
+          Appeler
+        </div>
+      </a>
+      <a href="#" class="contact_dp_item">
+        <i class="material-icons dp_contact_icon">reply</i>
+        <div class="dp_contact_title">
+          Partager
+        </div>
+      </a>
+    </div>
+    <!-- /Contact dp menu -->
+  </div>
+  <!-- Contact dp info -->
+  <div class="contact_dp_info undisplay" id="contact_dp_info<%=contactid%>">
+    <div class="contact_dp_info_line">
+      <div class="contact_dp_info_line_50">
+        <i class="fa fa-building" style="margin: 3px;"></i>
+        <div style="margin-left: 5px;">
+          Benamou Beach
+        </div>
+      </div>
+      <div class="contact_dp_info_line_50">
+        <i class="fa fa-id-card" style="margin: 3px;"></i>
+        <div style="margin-left: 5px;">
+          Director
+        </div>
+      </div>
+    </div>
+    <div class="contact_dp_info_line">
+      <i class="material-icons" style="font-size: 17px; margin-top: 5px;">email</i>
+      <div style="margin-left: 10px; padding-top: 4px;">
+        jose.garcia@gmail.com
+      </div>
+    </div>
+
+    <div class="contact_dp_info_line">
+      <i class="material-icons" style="font-size: 17px; margin-top: 5px;">phone</i>
+      <div style="margin-left: 10px; padding-top: 4px;">
+        0618162342
+      </div>
+    </div>
+
+    <div class="contact_dp_info_line_group">
+      <i class="material-icons" style="font-size: 17px; margin-top: 5px; margin-right: 5px;">group</i>
+      <div>
+        <div class="contact_group">
+          group1ee
+        </div>
+        <div class="contact_group">
+          group2
+        </div>
+        <div class="contact_group">
+          group3ezeze
+        </div>
+        <div class="contact_group">
+          group1
+        </div>
+        <div class="contact_group">
+          group2
+        </div>
+        <div class="contact_group">
+          group3
+        </div>
+        <a class="contact_group contact_add_group_btn">
+          +
+        </a>
+      </div>
+      
+    </div>
+
+    <div class="contact_dp_info_line" style="padding: 5px;">
+    
+        <a class="btn_contact">
+          <i class="fa fa-edit" style="margin: 3px;"></i>
+          editer
+        </a>
+
+        <a class="btn_contact">
+          <i class="fa fa-trash" style="margin: 3px;"></i>
+          Retirer de vos contacts
+        </a>
+    
+    </div>
+  </div>
+  <!-- /Contact dp info -->
+  <script>
+    $(document).ready(function () {
+      // Open info
+      $('#contact_dp_btn_info<%=contactid%>').on('click', function (event) {
+        $('#contact_dp_info<%=contactid%>').slideToggle();
+        $('.contact_dp_info').not('#contact_dp_info<%=contactid%>').slideUp();
+      });
+      // Open menu
+      $('#contact_dp_btn<%=contactid%>').on('click', function (event) {
+        $('#contact_dp<%=contactid%>').slideToggle();
+        $('.contact_dp').not('#contact_dp<%=contactid%>').slideUp();
+      });
+
+    });
+    $(document).mouseup(function(e){
+      var container = $("#contact_dp<%=contactid%>, #contact_dp_btn<%=contactid%>");
+      if (!container.is(e.target) && container.has(e.target).length === 0) {
+        $("#contact_dp<%=contactid%>").slideUp();
+      }
+    });
+  </script>
+  <!-- /Contact item -->
+</div>

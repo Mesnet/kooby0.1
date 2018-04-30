@@ -7,8 +7,6 @@ class User < ApplicationRecord
 
   has_many :user_emails
   has_one :user_info, dependent: :destroy
-  
-  has_many :contacts, dependent: :destroy
 
   def emails
     self.user_emails

@@ -1,0 +1,91 @@
+<div id="group_iter<%=groupid%>">
+  <!-- Contact item -->
+  <div class="contact group">
+    <div class="contact_square" id="contact_square1">
+      <i class="material-icons">crop_square</i>
+    </div>
+    <div class="contact_square_in undisplay" id="contact_square_in<%=groupid%>">
+      <i class="material-icons">check_box</i>
+    </div>
+    <div class="contact_dp_btn_info" id="group_dp_btn_info<%=groupid%>">
+      Cinema francais
+    </div>
+    <div class="contact_dp_btn" id="group_dp_btn<%=groupid%>">
+      <i class="material-icons">more_vert</i>
+    </div>
+    <!-- /Contact dp menu -->
+    <div class="group_dp undisplay" id="group_dp<%=groupid%>">
+      <!-- if the user have a mail -->
+      <a href="#" class="contact_dp_item">
+        <i class="material-icons dp_contact_icon">email</i>
+        <div class="dp_contact_title">
+          Mail
+        </div>
+      </a>
+      <!-- if group.koobiest? == true -->
+      <a href="#" class="contact_dp_item">
+        <i class="material-icons dp_contact_icon">chat</i>
+        <div class="dp_contact_title">
+          Chat
+        </div>
+      </a>
+      <a href="#" class="contact_dp_item">
+        <i class="material-icons dp_contact_icon">reply</i>
+        <div class="dp_contact_title">
+          Partager
+        </div>
+      </a>
+    </div>
+    <!-- /Contact dp menu -->
+  </div>
+  <!-- Contact dp info -->
+  <div class="group_dp_info undisplay" id="group_dp_info<%=groupid%>">
+    <%= render 'contacts/contact2', contactid: 1, groupid: groupid %>
+    <%= render 'contacts/contact2', contactid: 2, groupid: groupid %>
+    <%= render 'contacts/contact2', contactid: 3, groupid: groupid %>
+    <%= render 'contacts/contact2', contactid: 4, groupid: groupid %>
+    <%= render 'contacts/contact2', contactid: 5, groupid: groupid %>
+    <%= render 'contacts/contact2', contactid: 6, groupid: groupid %>
+    <%= render 'contacts/contact2', contactid: 7, groupid: groupid %>
+    <%= render 'contacts/contact2', contactid: 8, groupid: groupid %>
+    <%= render 'contacts/contact2', contactid: 9, groupid: groupid %>
+    <%= render 'contacts/contact2', contactid: 10, groupid: groupid %>
+
+    <div class="contact_dp_info_line" style="padding: 5px;">
+      <a class="btn_contact">
+        <i class="fa fa-edit" style="margin: 3px;"></i>
+        editer
+      </a>
+      <a class="btn_contact">
+        <i class="fa fa-trash" style="margin: 3px;"></i>
+        Retirer de vos groupes
+      </a>
+    </div>
+
+  </div>
+  <!-- /Contact dp info -->
+  <script>
+    $(document).ready(function () {
+      // Open info
+      $('#group_dp_btn_info<%=groupid%>').on('click', function (event) {
+        $('#group_dp_info<%=groupid%>').slideToggle();
+        $('.group_dp_info').not('#group_dp_info<%=groupid%>').slideUp();
+      });
+
+      // Open menu
+      $('#group_dp_btn<%=groupid%>').on('click', function (event) {
+        $('#group_dp<%=groupid%>').slideToggle();
+        $('.group_dp').not('#group_dp<%=groupid%>').slideUp();
+      });
+
+
+    });
+    $(document).mouseup(function(e){
+      var container = $("#contact_dp<%=groupid%>, #contact_dp_btn<%=groupid%>");
+      if (!container.is(e.target) && container.has(e.target).length === 0) {
+        $("#contact_dp<%=groupid%>").slideUp();
+      }
+    });
+  </script>
+  <!-- /Contact item -->
+</div>

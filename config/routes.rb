@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
-  #Contacts
-  resources :contacts
-  patch "show_contacts" => "contacts#show_sn"
+  #Repository
+  patch "show_repository" => "contacts#show_sn"
+  patch "show_contacts" => "contacts#show"
+  patch "show_groups" => "groups#show"
+  patch "show_companies" => "companies#show"
 
   #Project
   resources :projects do 

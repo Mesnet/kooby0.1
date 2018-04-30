@@ -625,9 +625,9 @@ footer.page-footer {
   color: #5f5f5f;
 }
 
-/////////////////// - CONTACTS - //////////////////
+/////////////////// - REPOSITORY - //////////////////
 
-.contacts{
+.repository{
   background: white;
   width: 300px;
   position: fixed;
@@ -638,16 +638,12 @@ footer.page-footer {
   box-shadow: 0 -2px 4px 0 rgba(159, 159, 159, 0.5);
 }
 
-.contacts_header{
+.repo_header{
   border-bottom: solid 1px #e0e0e0;
 }
 
-.contacts_title{
-  margin: auto;
-  font-size: 20px;
-}
-
-.contacts_close_btn_icon{
+.repo_close_btn,
+.repo_search_btn{
   font-size: 30px;
   margin: 10px; 
   color: #5f5f5f;
@@ -657,18 +653,76 @@ footer.page-footer {
   }
 }
 
-.contacts_search_area{
+.repo_title{
+  margin: auto;
+  font-size: 20px;
+}
+
+.repo_search_area{
   border-bottom: solid 1px #e0e0e0;
   width: 100%;
   height: 50px;
   display: none;
 }
 
-.contacts_search_padding{
+.repo_search_padding{
   display: none; 
   width: 100%; 
   height: 60px;
 }
+
+.repo_sub_header{
+  width: 100%;
+  height: 30px;
+  background: #f5f5f5;
+  display: flex;
+}
+
+.repo_sub_header_item{
+  width: 33%;
+  text-align: center;
+  display: flex;
+  &:hover {
+    cursor: pointer;
+    background: #d0d0d0;
+    color: #666666 !important;
+  }
+}
+
+.repo_sub_header_item.active{
+  background: #d0d0d0;
+}
+
+.repo_sub_header_item_content{
+  width: max-content; 
+  margin: auto;
+  display: flex;
+}
+
+.repo_sub_header_item_title{
+  margin-left: 5px;
+  margin-top: 2px;
+  color: #666666;
+}
+
+
+/////////////////// - CONTACTS/GROUP/COMPANY - //////////////////
+
+
+.contact_select_item_menu{
+  display: block;
+  width: 100%;
+  height: 35px;
+  border-bottom: solid 1px #e0e0e0;
+  display: flex;
+  padding-top: 3px;
+  &:hover {
+    cursor: pointer;
+    background: #e0e0e0;
+    color: #666666;
+  }
+}
+
 .contacts_select{
   display: none;
 }
@@ -720,53 +774,6 @@ footer.page-footer {
   background: white;
 }
 
-.contact_select_item_menu{
-  display: block;
-  width: 100%;
-  height: 35px;
-  border-bottom: solid 1px #e0e0e0;
-  display: flex;
-  padding-top: 3px;
-  &:hover {
-    cursor: pointer;
-    background: #e0e0e0;
-    color: #666666;
-  }
-}
-
-.contacts_sub_header{
-  width: 100%;
-  height: 30px;
-  background: #f5f5f5;
-  display: flex;
-}
-
-.contacts_sub_header_item{
-  width: 33%;
-  text-align: center;
-  display: flex;
-  &:hover {
-    cursor: pointer;
-    background: #d0d0d0;
-    color: #666666 !important;
-  }
-}
-
-.contacts_sub_header_item.active{
-  background: #d0d0d0;
-}
-
-.contacts_sub_header_item_content{
-  width: max-content; 
-  margin: auto;
-  display: flex;
-}
-
-.contacts_sub_header_item_title{
-  margin-left: 5px;
-  margin-top: 2px;
-}
-
 .contacts_add_btn{
   background: #19bdad;
   color: white;
@@ -787,13 +794,19 @@ footer.page-footer {
 }
 
 .contacts_body{
-  height: calc(100% - 140px);
+  max-height: 100%;
   overflow: scroll;
   padding-bottom: 60px;
 }
 
 .contact{
   height: 41px;
+  border-bottom: solid 1px #e0e0e0;
+  display: flex;
+}
+
+.group{
+  height: 50px;
   border-bottom: solid 1px #e0e0e0;
   display: flex;
 }
@@ -837,7 +850,8 @@ footer.page-footer {
   }
 }
 
-.contact_dp{
+.contact_dp,
+.group_dp{
   position: fixed;
   right: 0;
   margin-top: 40px;
@@ -869,9 +883,13 @@ footer.page-footer {
   margin: 5px;
 }
 
-.contact_dp_info{
+.contact_dp_info,
+.group_dp_info{
   width: 100%;
   border-bottom: solid 1px #e0e0e0;
+  border-left: solid 3px #19bdad;
+  max-height: 300px;
+  overflow: scroll;
 }
 
 .contact_dp_info_line{
@@ -881,9 +899,34 @@ footer.page-footer {
   padding: 10px;
 }
 
+.contact_dp_info_line_group{
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  padding: 10px;
+}
+
 .contact_dp_info_line_50{
   width: 50%;
   display: flex;
+}
+
+.contact_group{
+  margin: 2px;
+  border: solid 1px #666666;
+  padding: 1px 5px;
+  border-radius: 5px;
+  width: max-content;
+  display: inline-block;
+}
+
+.contact_add_group_btn{
+  color: #666666;
+  &:hover {
+    cursor: pointer;
+    background: #e0e0e0;
+    color: #666666;
+  }
 }
 
 .btn_contact{
@@ -892,6 +935,18 @@ footer.page-footer {
   border-radius: 5px;
   border: solid 1px #d0d0d0;
   color: #666666;
+  &:hover {
+    cursor: pointer;
+    background: #e0e0e0;
+    color: #666666;
+  }
+}
+
+
+.contact_add_btn{
+  margin: 8px;
+  color: #666666;
+  border-radius: 5px;
   &:hover {
     cursor: pointer;
     background: #e0e0e0;

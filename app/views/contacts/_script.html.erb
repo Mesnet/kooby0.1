@@ -1,0 +1,51 @@
+  <script>
+    $(document).ready(function () {
+
+      // Select contact
+      $('.contact_square').on('click', function (event) {
+        $(this).closest('.contact').addClass('active');
+        $(this).addClass('undisplay');
+        $(this).next('.contact_square_in').removeClass('undisplay');
+        $(this).next().next().next('.contact_dp_btn').addClass('undisplay');
+        //Update num elements selected
+        var el = parseInt($('.contacts_select_num').text());
+        if(el == 0){
+          $('.contacts_select').slideDown();
+          $('.contacts_sub_header, .contacts_search_area').slideUp();
+        }
+        $('.contacts_select_num').text(el+1);
+      });
+
+      // UnSelect contact
+      $('.contact_square_in').on('click', function (event) {
+        $(this).closest('.contact').removeClass('active');
+        $(this).addClass('undisplay');
+        $(this).prev('.contact_square').removeClass('undisplay');
+        $(this).next().next('.contact_dp_btn').removeClass('undisplay');
+        //Update num elements selected
+        var el = parseInt($('.contacts_select_num').text());
+        if(el == 1){
+          $('.contacts_select').slideUp();
+          $('.contacts_sub_header').slideDown();
+        }
+        $('.contacts_select_num').text(el-1);
+      });
+
+      // Close selection
+      $('.contacts_select_btn_close').on('click', function (event) {
+        $('.contact').removeClass('active');
+        $('.contact_square').removeClass('undisplay');
+        $('.contact_square_in').addClass('undisplay');
+        $('.contact_dp_btn').removeClass('undisplay');
+        $('.contacts_select_num').text(0)
+        $('.contacts_select').slideUp();
+        $('.contacts_sub_header').slideDown();
+      });
+
+      // Dp menu selected
+       $('.contacts_select_btn_menu').on('click', function (event) {
+        $('.contact_select_area_menu').slideToggle();
+      });
+       
+    });
+</script>
