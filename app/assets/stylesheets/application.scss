@@ -20,6 +20,7 @@
 body{
   background: #FAFAFA;
   color: #5F5F5F;
+  width: 100%;
 }
 
 .main_body{
@@ -958,10 +959,14 @@ footer.page-footer {
 
 /////////////////// - BTN ADD (SHOW) - //////////////////
 
-.parent2 {
-  bottom:15px;
-  right:15px;
+.btn_add_post_area{
+  bottom:0;
+  right:0;
   position:fixed;
+  padding: 15px;
+}
+
+.btn_add_post {
  display:block;
   width:70px;
   height:70px;
@@ -973,9 +978,8 @@ footer.page-footer {
 box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
 }
 
-.mask{
-  bottom:15px;
-  right:15px;
+.btn_add_post_mask{
+  padding: 15px;
   width:70px;
   height:70px;
   background:#19bdad;
@@ -989,30 +993,34 @@ box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
   position:fixed;
 }
 
-.test{
-  width:80%;
-  height:80%;
+.btn_add_post_item{
+  width: 55px;
+  height: 55px;
   background-color:dimGray;
-  border-radius:50%;
+  border-radius:40px;
   color:white !important;
   text-align:center;
-  line-height:70px;
-  top: 10px;
-  left: 10px;
   z-index:19;
   transition: all 500ms cubic-bezier(0.680, -0.550, 0.265, 1.550);
   position:absolute;
+  margin: 5px;
 }
 
 .btn_add_icon{
   display: block;
   font-size: 30px;
-  margin-top: 20px;
+  margin-top: 6px;
 }
 
 .btn_add_icon2{
   font-size: 20px; 
   display: block; 
-  margin-top: 20px;
+  margin-top: 18px;
+}
+
+.btn_add_icon3{
+  font-size: 20px; 
+  display: block; 
+  margin-top: 18px;
 }
 

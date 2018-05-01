@@ -34,7 +34,6 @@
       </div>
     </a>
   </div>
-
   <div class="repo_search_area">
     here is the search
   </div>
@@ -50,11 +49,10 @@
       $(this).addClass('active');
       $('.repo_sub_header_item').not(this).removeClass('active')
     });
-
     // Close the contacts
     $('.repo_close_btn').on('click', function (event) {
       $('.repository').hide(function() { $(this).remove(); });   
-      $("body").css("margin-right","0px");
+      $(".main_body, .btn_add_post_area, .btn_add_post_mask, .btn_add_post_item").css("margin-right","0px");
     });
     // Display search area
     $('.repo_search_btn').on('click', function (event) {
