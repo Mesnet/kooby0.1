@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require materialize-sprockets
 //= require turbolinks
+//= require _materializecss-rails-confirm.js
 //= require_tree .
 
 $('.modal').modal();

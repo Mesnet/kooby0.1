@@ -1,8 +1,8 @@
 <div class="sidenav">
   <div class="sn_body">
     <!-- General item -->
-    <div class="sn_item">
-      <a class="sn_item_body" href="/">
+    <div class="sn_item" id='sn_item_general'>
+      <a class="sn_item_body" id="sn_item_body_general" href="#">
         <div class="sn_item_title">
           <div class="sn_item_title_picto">
             <%= image_tag "home.png", class: "sn_picto"%>
@@ -33,4 +33,27 @@
     Créer Projet
   </a>
 </div>
+<script>
+  $(document).ready(function () {
+    var pathname = window.location.pathname
+    var project = pathname.split("/")[2]
+    // Active links General
+    if(pathname == '/' || pathname == '/tasks' || pathname == '/events' || pathname == '/clouds' ) {
+      $('#sn_item_general').addClass('active');
+    }
+    // href route
+    if(pathname == '/' || pathname == '/projects/'+project){
+      $('#sn_item_body_general').attr('href', '/');
+    }
+    else if(pathname == '/tasks' || pathname == '/projects/'+project+'/taskboard'){
+      $('#sn_item_body_general').attr('href', '/tasks');
+    }
+    else if(pathname == '/events' || pathname == '/projects/'+project+'/calendar'){
+      $('#sn_item_body_general').attr('href', '/events');
+    }
+    else if(pathname == '/clouds' || pathname == '/projects/'+project+'/cloud'){
+      $('#sn_item_body_general').attr('href', '/clouds');
+    }
+  });
+</script>
 <%= render 'projects/new' %>

@@ -954,3 +954,65 @@ footer.page-footer {
     color: #666666;
   }
 }
+
+
+/////////////////// - BTN ADD (SHOW) - //////////////////
+
+.parent2 {
+  bottom:15px;
+  right:15px;
+  position:fixed;
+ display:block;
+  width:70px;
+  height:70px;
+  background-color:transparent;
+  border-radius:50%;
+  z-index:20;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+
+.mask{
+  bottom:15px;
+  right:15px;
+  width:70px;
+  height:70px;
+  background:#19bdad;
+  border-radius:50%;
+  position:absolute;
+  z-index:21;
+  color:white;
+  text-align:center;
+  line-height:80px;
+  cursor:pointer;
+  position:fixed;
+}
+
+.test{
+  width:80%;
+  height:80%;
+  background-color:dimGray;
+  border-radius:50%;
+  color:white !important;
+  text-align:center;
+  line-height:70px;
+  top: 10px;
+  left: 10px;
+  z-index:19;
+  transition: all 500ms cubic-bezier(0.680, -0.550, 0.265, 1.550);
+  position:absolute;
+}
+
+.btn_add_icon{
+  display: block;
+  font-size: 30px;
+  margin-top: 20px;
+}
+
+.btn_add_icon2{
+  font-size: 20px; 
+  display: block; 
+  margin-top: 20px;
+}
+
