@@ -21,16 +21,10 @@ body{
   background: #FAFAFA;
   color: #5F5F5F;
   width: 100%;
-}
-
-.main_body{
+  height: calc(100% - 60px);
   margin-top: 60px;
   margin-left: 250px;
-  position: fixed;
   padding: 10px;
-  top: 0;
-  left: 0;
-  height: calc(100% - 60px);
 }
 
 a:hover {
@@ -100,7 +94,7 @@ hr{
   left: 0;
   box-shadow: 0 2px 4px 0 rgba(159, 159, 159, 0.5);
   display: inline-flex;
-  z-index: 999;
+  z-index: 2;
 }
 
 .navbar2{
@@ -287,7 +281,7 @@ footer.page-footer {
 
 .sidenav{
   position: fixed;
-  z-index: 99;
+  z-index: 1;
   top: 0;
   left: 0;
   width: 250px;

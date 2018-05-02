@@ -1,43 +1,50 @@
 <div class="btn_add_post_area">
   <div class="btn_add_post">
-    <a href="#1" class="btn_add_post_item  tooltipped" id='btn_add_post_item1' data-position="top" data-tooltip="Fichier"><i class="material-icons btn_add_icon2">backup</i></a>
-    <a href="#2" class="btn_add_post_item tooltipped" id='btn_add_post_item2' data-position="top" data-tooltip="Evènement"><i class="material-icons btn_add_icon2">date_range</i></a>
-    <a href="#3" class="btn_add_post_item tooltipped" id='btn_add_post_item3' data-position="left" data-tooltip="Tâche"><i class="fa fa-thumb-tack btn_add_icon3"></i></a>
-    <a href="#4" class="btn_add_post_item tooltipped" id='btn_add_post_item4' data-position="left" data-tooltip="Post"><i class="material-icons btn_add_icon2">mode_comment</i></a>
+    <a href="#1" class="btn_add_post_item tooltipped modal-trigger" id='btn_add_post_item1' data-position="top" data-tooltip="Fichier"><i class="material-icons btn_add_icon2">backup</i></a>
+    <a href="#2" class="btn_add_post_item tooltipped modal-trigger" id='btn_add_post_item2' data-position="top" data-tooltip="Evènement"><i class="material-icons btn_add_icon2">date_range</i></a>
+    <a href="#3" class="btn_add_post_item tooltipped modal-trigger" id='btn_add_post_item3' data-position="left" data-tooltip="Tâche"><i class="fa fa-thumb-tack btn_add_icon3"></i></a>
+    <div class="btn_add_post_item tooltipped modal-trigger" id='btn_add_post_item4' data-position="left" data-tooltip="Post" data-target="ModalNewPost"><i class="material-icons btn_add_icon2">mode_comment</i></div>
     <div class="btn_add_post_mask">
       <i class="material-icons btn_add_icon">add</i>
       <i class="material-icons btn_add_icon" id="btn_add_icon2">close</i>
     </div>
   </div>
   <script>
-  $(document).ready(function() {
+    $(document).ready(function() {
+      $('#ModalNewPost').modal();
+      var active1 = false;
+      var active2 = false;
+      var active3 = false;
+      var active4 = false;
+      // Open the items
+      $('.btn_add_post').on('mousedown touchstart', function() {
+        if (!active1) $(this).find('#btn_add_post_item1').css({'background-color': 'gray', 'transform': 'translate(0px, -125px)'});
+        else $(this).find('#btn_add_post_item1').css({'background-color': 'dimGray', 'transform': 'none'}); 
+         if (!active2) $(this).find('#btn_add_post_item2').css({'background-color': 'gray', 'transform': 'translate(-60px,-105px)'});
+        else $(this).find('#btn_add_post_item2').css({'background-color': 'darkGray', 'transform': 'none'});
+          if (!active3) $(this).find('#btn_add_post_item3').css({'background-color': 'gray', 'transform': 'translate(-105px,-60px)'});
+        else $(this).find('#btn_add_post_item3').css({'background-color': 'silver', 'transform': 'none'});
+          if (!active4) $(this).find('#btn_add_post_item4').css({'background-color': 'gray', 'transform': 'translate(-125px,0px)'});
+        else $(this).find('#btn_add_post_item4').css({'background-color': 'silver', 'transform': 'none'});
+        active1 = !active1;
+        active2 = !active2;
+        active3 = !active3;
+        active4 = !active4;
+      });
+      // Change add/close image
+      $('#btn_add_icon2').hide();
+      $('.mask').on('click', function (event) {
+        $('.btn_add_icon').toggle()
+      });
 
-    var active1 = false;
-    var active2 = false;
-    var active3 = false;
-    var active4 = false;
-    // Open the items
-    $('.btn_add_post').on('mousedown touchstart', function() {
-      if (!active1) $(this).find('#btn_add_post_item1').css({'background-color': 'gray', 'transform': 'translate(0px, -125px)'});
-      else $(this).find('#btn_add_post_item1').css({'background-color': 'dimGray', 'transform': 'none'}); 
-       if (!active2) $(this).find('#btn_add_post_item2').css({'background-color': 'gray', 'transform': 'translate(-60px,-105px)'});
-      else $(this).find('#btn_add_post_item2').css({'background-color': 'darkGray', 'transform': 'none'});
-        if (!active3) $(this).find('#btn_add_post_item3').css({'background-color': 'gray', 'transform': 'translate(-105px,-60px)'});
-      else $(this).find('#btn_add_post_item3').css({'background-color': 'silver', 'transform': 'none'});
-        if (!active4) $(this).find('#btn_add_post_item4').css({'background-color': 'gray', 'transform': 'translate(-125px,0px)'});
-      else $(this).find('#btn_add_post_item4').css({'background-color': 'silver', 'transform': 'none'});
-      active1 = !active1;
-      active2 = !active2;
-      active3 = !active3;
-      active4 = !active4;
+      // If click out = Close
+      // -> Do it here !
     });
-    // Change add/close image
-    $('#btn_add_icon2').hide();
-    $('.mask').on('click', function (event) {
-      $('.btn_add_icon').toggle()
-    });
-    // If click out = Close
-    // -> Do it here !
-  });
   </script>
+</div>
+
+<div class="modal" id="ModalNewPost">
+  <div class="modal-header">
+    <h4>Nouveau post</h4>
+  </div>
 </div>

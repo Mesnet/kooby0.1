@@ -2,6 +2,7 @@ class Project < ApplicationRecord
   validates :name, presence: true
 
   has_many :user_projects
+  has_many :posts, dependent: :destroy
 
   default_scope {where(removed: false)} 
 

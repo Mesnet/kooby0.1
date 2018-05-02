@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :posts
   #Repository
   patch "show_repository" => "contacts#show_sn"
   patch "show_contacts" => "contacts#show"
