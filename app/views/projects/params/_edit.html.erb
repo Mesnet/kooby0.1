@@ -46,7 +46,7 @@
     <%= f.submit "Editer le projet", class: "btn", style: "margin-top: 15px;" %>
   <% end %>
   <hr>
-  <a href='/projects/<%=@project.id%>' data-method="delete" data-remote="true" data-confirm="Etes vous sur de vouloir supprimer le project <%= @project.name %> ? ( Cette action est définitive )" class="waves-effect waves-light btn red lighten-1 center;" style="color: white;">
+  <a href='/projects/<%=@project.id%>' data-method="delete" data-remote="true" data-confirm="Etes vous sur de vouloir supprimer le project <%= @project.name %> ? ( Cette action est définitive )" class="waves-effect waves-light btn center;" style="color: white; background: #DA7475;">
     <i class="material-icons left">delete</i>Supprimer le projet
   </a>
 </div> 

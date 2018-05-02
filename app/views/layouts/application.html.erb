@@ -8,26 +8,18 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
     <% flash.each do |message_type, message| %>
       <%= javascript_tag "Materialize.toast('#{message}', 4000)" %>
     <% end %>
     <%- if user_signed_in? %>
       <%= render 'pages/nav/navin' %>
-      <%- if @nonav %>
-        <%= yield %>
-      <% else %>
+      <%- unless @nonav %>
         <%= render 'pages/nav/sidenav' %>
-        <div class="main_body">
-          <%= yield %>
-        </div>
       <% end %> 
-      
     <% else %>
       <%= render 'pages/nav/navout' %>
-      <%= yield %>
     <% end %>
-    
+    <%= yield %>
   </body>
 </html>

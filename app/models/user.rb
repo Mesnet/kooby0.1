@@ -45,7 +45,7 @@ class User < ApplicationRecord
       # Find the user_mail corresponding to the user.mail
       mail = UserEmail.where(email: self.email).first
       #Check if this user_mail exist
-      if mail.any?
+      unless mail.nil?
         # Check if the user_mail is not already confirmed
         if mail.user_id == nil
           mail.update(user_id: self.id, confirmed: true)

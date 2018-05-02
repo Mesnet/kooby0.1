@@ -1,4 +1,5 @@
 $('#ModalNewPost').remove();
 $('body').prepend("<%=  j render partial: 'posts/new', locals: {post: @post}  %>");
 $('.modal').modal();
+$('.tooltipped').tooltip();
 $('#ModalNewPost').modal('open');

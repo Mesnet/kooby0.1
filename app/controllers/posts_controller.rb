@@ -4,7 +4,10 @@ class PostsController < ApplicationController
   def open_new
     unless params[:projectid].blank?
       @project = Project.find(params[:projectid])
-      # => Params to secure the project access
+      # Params to secure the project access
+      unless @project.participants.where(user_email_id: current_user.emails).any?
+        redirect_to root_path, :flash => { :notice => "Insufficient rights !" }
+      end
     end
     if @project == nil 
       @post = current_user.posts.unpublished.where(project_id: nil).last
