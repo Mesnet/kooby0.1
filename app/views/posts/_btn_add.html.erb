@@ -1,9 +1,12 @@
+<%- unless @project.nil? %>
+  <% @projectid = @project.id %>
+<% end %>
 <div class="btn_add_post_area">
   <div class="btn_add_post">
     <a href="#1" class="btn_add_post_item tooltipped modal-trigger" id='btn_add_post_item1' data-position="top" data-tooltip="Fichier"><i class="material-icons btn_add_icon2">backup</i></a>
     <a href="#2" class="btn_add_post_item tooltipped modal-trigger" id='btn_add_post_item2' data-position="top" data-tooltip="Evènement"><i class="material-icons btn_add_icon2">date_range</i></a>
     <a href="#3" class="btn_add_post_item tooltipped modal-trigger" id='btn_add_post_item3' data-position="left" data-tooltip="Tâche"><i class="fa fa-thumb-tack btn_add_icon3"></i></a>
-    <div class="btn_add_post_item tooltipped modal-trigger" id='btn_add_post_item4' data-position="left" data-tooltip="Post" data-target="ModalNewPost"><i class="material-icons btn_add_icon2">mode_comment</i></div>
+    <a href="/open_new_post?projectid=<%=@projectid%>" data-method="patch" data-remote="true" class="btn_add_post_item tooltipped modal-trigger" id='btn_add_post_item4' data-position="left" data-tooltip="Post"><i class="material-icons btn_add_icon2">mode_comment</i></a>
     <div class="btn_add_post_mask">
       <i class="material-icons btn_add_icon">add</i>
       <i class="material-icons btn_add_icon" id="btn_add_icon2">close</i>
@@ -11,7 +14,6 @@
   </div>
   <script>
     $(document).ready(function() {
-      $('#ModalNewPost').modal();
       var active1 = false;
       var active2 = false;
       var active3 = false;
@@ -41,10 +43,4 @@
       // -> Do it here !
     });
   </script>
-</div>
-
-<div class="modal" id="ModalNewPost">
-  <div class="modal-header">
-    <h4>Nouveau post</h4>
-  </div>
 </div>

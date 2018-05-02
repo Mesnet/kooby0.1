@@ -1,28 +1,27 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:update, :destroy]
 
-  # GET /posts
-  # GET /posts.json
-  def index
-    @posts = Post.all
+  def open_new
+    unless params[:projectid].blank?
+      @project = Project.find(params[:projectid])
+      # => Params to secure the project access
+    end
+    if @project == nil 
+      @post = current_user.posts.unpublished.where(project_id: nil).last
+      if @post == nil 
+        @post = Post.create(user: current_user)
+      end
+    else
+      @post = current_user.posts.unpublished.where(project_id: @project).last
+      if @post == nil 
+        @post = Post.create(user: current_user, project: @project)
+      end
+    end
+    respond_to do |format|
+      format.js {render 'posts/js/new'}
+    end
   end
 
-  # GET /posts/1
-  # GET /posts/1.json
-  def show
-  end
-
-  # GET /posts/new
-  def new
-    @post = Post.new
-  end
-
-  # GET /posts/1/edit
-  def edit
-  end
-
-  # POST /posts
-  # POST /posts.json
   def create
     @post = Post.new(post_params)
 
@@ -37,8 +36,6 @@ class PostsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /posts/1
-  # PATCH/PUT /posts/1.json
   def update
     respond_to do |format|
       if @post.update(post_params)
@@ -51,8 +48,6 @@ class PostsController < ApplicationController
     end
   end
 
-  # DELETE /posts/1
-  # DELETE /posts/1.json
   def destroy
     @post.destroy
     respond_to do |format|

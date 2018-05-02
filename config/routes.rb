@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
+  #Post
   resources :posts
+  patch "open_new_post" => "posts#open_new"
+
   #Repository
   patch "show_repository" => "contacts#show_sn"
   patch "show_contacts" => "contacts#show"
@@ -27,6 +30,7 @@ Rails.application.routes.draw do
   end
 
   resources :email_projects
+  patch "open_new_project" => "projects#open_new"
 
   #User
   devise_for :users

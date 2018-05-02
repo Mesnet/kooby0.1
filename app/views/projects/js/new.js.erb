@@ -1,0 +1,4 @@
+$('#ModalNewProject').remove();
+$('body').prepend("<%=  j render partial: 'projects/new' %>");
+$('.modal').modal();
+$('#ModalNewProject').modal('open');

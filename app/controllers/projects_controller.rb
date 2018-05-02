@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, except: [:create]
-  before_action :set_my_user_project, except: [:create]
+  before_action :set_project, except: [:create, :open_new]
+  before_action :set_my_user_project, except: [:create, :open_new]
   before_action :my_user_admin, only: [:open_params, :update, :expel, :upd_role, :destroy]
   before_action :administrator, only: [:update, :expel, :upd_role, :destroy]
   before_action :set_user, only: [:quit, :expel, :upd_role]
@@ -113,6 +113,12 @@ class ProjectsController < ApplicationController
     @inviteds = @project.inviteds.includes(:user_email)
     respond_to do |format|
       format.js {render 'projects/js/params'}
+    end
+  end
+
+  def open_new
+    respond_to do |format|
+      format.js {render 'projects/js/new'}
     end
   end
 

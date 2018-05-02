@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20180501171200) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.text "content"
+    t.boolean "publish", default: false
     t.boolean "removed", default: false
     t.integer "user_id"
     t.integer "project_id"
