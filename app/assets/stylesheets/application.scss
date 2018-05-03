@@ -1071,5 +1071,37 @@ box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
   font-size: 20px;
   width: max-content;
   margin: auto;
+  
 }
+
+.element_form_title{
+  border: solid #e0e0e0;
+  padding: 2px 15px;
+  border-bottom: 0;
+  font-size: 15px;
+  font-family: lato;
+  &:hover{
+    cursor: url(https://ssl.gstatic.com/ui/v1/icons/mail/images/2/openhand.cur), default !important;;
+    opacity: 0.8;
+  }
+}
+
+.element_form_body{
+  border: solid #e0e0e0;
+  padding: 10px;
+}
+
+.element_form_btn{
+  font-size: 15px;
+  padding: 0 10px;
+  border: solid #e0e0e0;
+  border-bottom: 0;
+  border-top-right-radius: 5px;
+  &:hover{
+    cursor: pointer;
+    opacity: 0.8;
+    color: #666666;
+  }
+}
+
 
