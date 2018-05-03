@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180503165637) do
+ActiveRecord::Schema.define(version: 20180503174216) do
+
+  create_table "elements", force: :cascade do |t|
+    t.integer "post_id"
+    t.integer "cat"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_elements_on_post_id"
+  end
 
   create_table "email_projects", force: :cascade do |t|
     t.string "email"
@@ -22,11 +30,11 @@ ActiveRecord::Schema.define(version: 20180503165637) do
   end
 
   create_table "post_texts", force: :cascade do |t|
-    t.integer "post_id"
+    t.integer "element_id"
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["post_id"], name: "index_post_texts_on_post_id"
+    t.index ["element_id"], name: "index_post_texts_on_element_id"
   end
 
   create_table "posts", force: :cascade do |t|
