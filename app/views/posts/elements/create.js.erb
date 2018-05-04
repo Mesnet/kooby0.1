@@ -1,0 +1,7 @@
+<%= form_for(@post) do |post| %>
+  <%= p.fields_for :elements, @element do |elm| %>
+
+      $('body').fadeOut();
+
+  <% end %>
+<% end %>

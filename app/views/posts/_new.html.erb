@@ -6,28 +6,23 @@
   <%= simple_form_for @post do |f| %>
     <div class="modal-content">
       <div class="elements center;">
-       
-
-
-        <%= f.fields_for :elements do |element| %>
-          <%- if element.object.cat == 1 %>
-            test1
-          <% else %>
-            test2
+        <%- if @post.elements.any? %>
+          <%= f.fields_for :elements do |element| %>
+            <%= render 'posts/elements/element_field', f: element %>
           <% end %>
-        <% end %>
-        <!-- If element.any? -->
-        <!-- <div class="element_order inline">
-          <i class="material-icons" style="margin-right: 10px;">arrow_downward</i>
-          <div class="element_order_title">
-            Ajouter un élément à votre post
+        <% else %>
+          <div class="element_order inline">
+            <i class="material-icons" style="margin-right: 10px;">arrow_downward</i>
+            <div class="element_order_title">
+              Ajouter un élément à votre post
+            </div>
+            <i class="material-icons" style="margin-left: 10px;">arrow_downward</i>
           </div>
-          <i class="material-icons" style="margin-left: 10px;">arrow_downward</i>
-        </div> -->
+        <% end %>
       </div>
     </div>
     <div class="btn_add_element_area">
-      <a href="#" class="btn_add_element tooltipped" data-position="bottom" data-tooltip="Text">
+      <a href="/posts/<%=@post.id%>/create_element?cat=1" data-method="patch" data-remote="true" class="btn_add_element tooltipped" data-position="bottom" data-tooltip="Text">
         <i class="fa fa-font add_element_icon"></i>
       </a>
       <a href="#" class="btn_add_element tooltipped" data-position="bottom" data-tooltip="Photo">

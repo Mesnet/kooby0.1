@@ -1,0 +1,24 @@
+<div class="element_form" id="element_form<%= f.object.id %>">
+  <div class="element_form_header inline">
+    <div class="element_form_title inline">
+      <%- if f.object.cat == 1 %>
+        <i class="fa fa-font" style="margin-right: 5px; margin-top: 2px;"></i>
+        TEXTE
+      <% else %>
+        other
+      <% end %>
+    </div>
+    <div class="space"></div>
+    <a href="/posts/<%= @post.id%>/delete_element?elementid=<%=f.object.id%>" data-method="patch" data-remote="true" data-confirm="Voulez vous supprimer cet élément ?" class="element_form_btn">
+      <i class="fa fa-trash element_form_icon"></i>
+    </a>
+  </div>
+  <div class="undisplay">
+    <%= f.number_field :cat %>
+  </div>
+  <%- if f.object.cat == 1 %>
+    <%= f.fields_for :post_texts do |text| %>
+      <%= render 'posts/elements/text_field', f: text %>
+    <% end %>
+  <% end %>
+</div>

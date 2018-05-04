@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
 
   #Post
-  resources :posts
+  resources :posts do 
+    member do 
+      patch :create_element
+      patch :delete_element
+    end
+  end
   patch "open_new_post" => "posts#open_new"
 
   #Repository

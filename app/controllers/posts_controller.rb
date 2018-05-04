@@ -1,5 +1,27 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:update, :destroy]
+   before_action :set_post, except: [:open_new, :create]
+
+  def create_element
+    if params[:cat] == "1"
+      @element = Element.create(post: @post, cat: 1)
+      PostText.create(element: @element)
+    end
+    respond_to do |format|
+      format.js {render 'posts/elements/create'}
+    end
+  end
+
+  def delete_element
+    @element = Element.find(params[:elementid])
+    if @post.user_id = current_user.id
+      @element.destroy
+      respond_to do |format|
+        format.js {render 'posts/elements/destroy'}
+      end
+    else 
+      redirect_to root_path, :flash => { :notice => "Insufficient rights !" }
+    end
+  end
 
   def open_new
     unless params[:projectid].blank?
@@ -66,8 +88,8 @@ private
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
-  def post_params
-    params.require(:post).permit(:content, :user_id, :project_id, elements_attributes: [:id, :cat])
-  end
+def post_params
+  params.require(:post).permit(:content, :user_id, :project_id, elements_attributes: [:id, :cat, post_texts_attributes: [:id, :content] ])
+end
 
 end
