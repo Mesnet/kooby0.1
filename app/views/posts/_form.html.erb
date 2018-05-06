@@ -1,0 +1,48 @@
+<div class="post_form">
+  <%= simple_form_for @post do |f| %>
+    <div class="modal-content">
+      <div class="elements center;">
+        <%- if @post.elements.any? %>
+          <%= f.fields_for :elements do |element| %>
+            <%= render 'posts/elements/element_field', f: element %>
+          <% end %>
+        <% else %>
+          <div class="element_order inline">
+            <i class="material-icons" style="margin-right: 10px;">arrow_downward</i>
+            <div class="element_order_title">
+              Ajouter un élément à votre post
+            </div>
+            <i class="material-icons" style="margin-left: 10px;">arrow_downward</i>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="btn_add_element_area">
+      <a href="/posts/<%=@post.id%>/create_element?cat=1" data-method="patch" data-remote="true" class="btn_add_element tooltipped" data-position="bottom" data-tooltip="Text">
+        <i class="fa fa-font add_element_icon"></i>
+      </a>
+      <a href="#" class="btn_add_element tooltipped" data-position="bottom" data-tooltip="Photo">
+        <i class="fa fa-camera add_element_icon"></i>
+      </a>
+      <a href="#" class="btn_add_element tooltipped" data-position="bottom" data-tooltip="Sondage">
+        <i class="fa fa-bar-chart add_element_icon"></i>
+      </a>
+      <a href="#" class="btn_add_element tooltipped" data-position="bottom" data-tooltip="Tâche">
+        <i class="fa fa-thumb-tack add_element_icon"></i>
+      </a>
+      <a href="#" class="btn_add_element tooltipped" data-position="bottom" data-tooltip="Evènement">
+        <i class="fa fa-calendar-o add_element_icon"></i>
+      </a>
+      <a href="#" class="btn_add_element tooltipped" data-position="bottom" data-tooltip="Fichier">
+        <i class="fa fa-cloud-upload add_element_icon"></i>
+      </a>
+    </div>
+    <div class="modal-footer new_post_footer" >
+      <a href="#" class="btn waves-effect waves-light" style="color: white; width: 180px; background: #DA7475" data-confirm="Toutes les modifications seront perdues ?">
+        Annuler
+      </a>
+      <div class="space"></div>
+      <%= f.submit "Publier", class: "btn" %>
+    </div>
+  <% end %>
+</div>

@@ -1,7 +1,3 @@
-<%= form_for(@post) do |post| %>
-  <%= p.fields_for :elements, @element do |elm| %>
-
-      $('body').fadeOut();
-
-  <% end %>
-<% end %>
+$(".post_form").replaceWith("<%=  j render partial: 'posts/form' %>"); 
+$('#element_form<%=@element.id%>').hide();
+$('#element_form<%=@element.id%>').slideDown();
