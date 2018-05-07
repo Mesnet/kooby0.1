@@ -18,6 +18,10 @@ class Project < ApplicationRecord
     self.user_projects.admin.participation.includes(:user_email).map(&:user_email)
   end
 
+  def cached_posts
+    self.posts.published
+  end
+
 end
 
 

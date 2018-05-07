@@ -1,3 +1,5 @@
 $(".post_form").replaceWith("<%=  j render partial: 'posts/form' %>"); 
 $('#element_form<%=@element.id%>').hide();
 $('#element_form<%=@element.id%>').slideDown();
+$('.material-tooltip').fadeOut()
+$('.tooltipped').tooltip();

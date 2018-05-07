@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require materialize-sprockets
+//= require trix
 //= require turbolinks
 //= require _materializecss-rails-confirm.js
 //= require_tree .

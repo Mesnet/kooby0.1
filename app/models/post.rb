@@ -9,4 +9,9 @@ class Post < ApplicationRecord
   scope :active, -> { where(removed: false) }
   scope :published, -> { where(publish: true) }
   scope :unpublished, -> { where(publish: false) }
+
+  def cached_user
+    self.user
+  end
+
 end

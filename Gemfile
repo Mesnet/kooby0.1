@@ -19,6 +19,7 @@ gem 'rails_admin'
 gem 'cocoon'
 gem 'dalli'
 gem 'turbolinks', '~> 5'
+gem 'trix'
 
 #Style
 gem 'materialize-sass'

@@ -1,0 +1,5 @@
+<div class="elements center;">
+  <%= f.fields_for :elements do |element| %>
+    <%= render 'posts/elements/element_field', f: element %>
+  <% end %>
+</div>

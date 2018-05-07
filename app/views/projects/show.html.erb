@@ -1,8 +1,17 @@
 <div class="page_body center">
-  <!-- Modal Structure -->
-  <h1>
-  <%= @project.name %>
-  </h1>
-  
+  <div class="posts">
+    <% @project.cached_posts.each do |post| %>
+      <%= render 'posts/post', post: post %>
+    <% end %>
+  </div>
+
 </div>
 <%= render 'posts/btn_add' %>
+
+<script>
+  $(document).ready(function () {
+    $('.btn_dp_post').on('click', function (event) {
+      $(this).next('.dp_post').slideToggle();
+    });
+  });
+</script>

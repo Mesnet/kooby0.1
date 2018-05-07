@@ -1,0 +1,60 @@
+<div class="post_footer">
+  <a href='#' class="post_footer_btn">
+    <i class="material-icons" style="font-size: 20px; margin-top: 5px;">thumb_up</i>
+  </a>
+  <a class="post_footer_btn" id="show_comments<%=post.id%>">
+    <i class="material-icons" style="font-size: 20px; margin-top: 5px;">mode_comment</i>
+  </a>
+</div>
+<div class="comments undisplay" id="comments<%=post.id%>">
+  <a href="#" class="more_comments_btn">Voir les commentaires precedent</a>
+  <div class="comment">
+    <div class="comment_user" style="background: #6eadee;">
+      JD
+    </div>
+    <div class="comment_body">
+      <a href="#" class="post_peudo">John Doe</a>
+      <div class="comment_content">
+        Ca me parait pas mal tout ca
+      </div>
+    </div>
+  </div>
+  <div class="comment">
+    <div class="comment_user" style="background: #eeaf6e;">
+      FC
+    </div>
+    <div class="comment_body">
+      <a href="#" class="post_peudo">Flore Chantot</a>
+      <div class="comment_content">
+        Oui super boulot ! Par contre je ne suis pas sur que l'on puisse intégrer ce format
+      </div>
+    </div>
+  </div>
+  <div class="comment">
+    <div class="comment_user" style="background: #ee6e73;">
+      MB
+    </div>
+    <div class="comment_body">
+      <a href="#" class="post_peudo">Marc Bellstrom</a>
+      <div class="comment_content">
+        Je regarde pour l'intégration des que j'ai fini la tâches pour notre nouveau client seb.
+      </div>
+    </div>
+  </div>
+  <div class="comment_form">
+    <div class="comment_user" style="background: #1B998B;">
+      JM
+    </div>
+    <input type="text" style="margin-bottom: 0; margin-left: 10px; height: 30px;" placeholder="Votre commentaire"/>
+    <div class="btn" style="margin-left: 10px; width: 50px; padding: 0; height: 30px;">
+      <i class="material-icons" style="font-size: 15px; margin-top: -5px;">send</i>
+    </div>
+  </div>
+</div>
+<script>
+  $(document).ready(function(){
+    $('#show_comments<%=post.id%>').on('click', function (event) {
+      $('#comments<%=post.id%>').slideToggle();
+    });
+  });
+</script>

@@ -1,0 +1,7 @@
+<div class="post_body" id="post_body<%= post.id%>">
+  <%- if post.elements.any? %>
+    <% post.elements.each do |element| %>
+      <%= render 'posts/element', element: element %>
+    <% end %>
+  <% end %>
+</div>

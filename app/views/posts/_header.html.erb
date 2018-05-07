@@ -1,0 +1,27 @@
+<div class="post_header">
+  <div class="user_icon_round" style="background:<%=post.cached_user.color%>;">
+      <%= post.cached_user.initial %>
+  </div>
+  <div class="post_title">
+    <div class="post_title_content">
+      <a href="#" class="post_peudo"><%= post.cached_user.pseudo %></a>
+      a créer un post
+    </div>
+    <div class="post_date">
+      <%= post.created_at.strftime("%d %B, %H:%M") %>
+    </div>
+  </div>
+  <div class="btn_dp_post" id="btn_dp_post<%= post.id%>">
+    <i class="material-icons">more_horiz</i>
+  </div>
+  <div class="dp_post undisplay" id="dp_post<%=post.id%>">
+   
+  </div>
+</div>
+<script>
+  $(document).mouseup(function(e){
+    var container = $("#dp_post<%=post.id%>, #btn_dp_post<%=post.id%>");
+    if (!container.is(e.target) && container.has(e.target).length === 0) {$("#dp_post<%=post.id%>").slideUp();
+    }
+  });
+</script>

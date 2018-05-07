@@ -1,21 +1,20 @@
 <div class="post_form">
-  <%= simple_form_for @post do |f| %>
+  <%= simple_form_for(@post, remote: true) do |f| %>
+
     <div class="modal-content">
-      <div class="elements center;">
-        <%- if @post.elements.any? %>
-          <%= f.fields_for :elements do |element| %>
-            <%= render 'posts/elements/element_field', f: element %>
-          <% end %>
-        <% else %>
-          <div class="element_order inline">
-            <i class="material-icons" style="margin-right: 10px;">arrow_downward</i>
-            <div class="element_order_title">
-              Ajouter un élément à votre post
-            </div>
-            <i class="material-icons" style="margin-left: 10px;">arrow_downward</i>
+      
+      <%- if @post.elements.any? %>
+        <%= render 'posts/elements/elements', f: f %>
+      <% else %>
+        <div class="element_order inline">
+          <i class="material-icons" style="margin-right: 10px;">arrow_downward</i>
+          <div class="element_order_title">
+            Ajouter un élément à votre post
           </div>
-        <% end %>
-      </div>
+          <i class="material-icons" style="margin-left: 10px;">arrow_downward</i>
+        </div>
+      <% end %>
+      
     </div>
     <div class="btn_add_element_area">
       <a href="/posts/<%=@post.id%>/create_element?cat=1" data-method="patch" data-remote="true" class="btn_add_element tooltipped" data-position="bottom" data-tooltip="Text">

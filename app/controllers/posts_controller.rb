@@ -64,11 +64,12 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
-        format.json { render :show, status: :ok, location: @post }
-      else
-        format.html { render :edit }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+        if @post.publish?
+          format.js {render 'posts/js/update'}
+        else 
+          @post.update(publish: true)
+          format.js {render 'posts/js/create'}
+        end
       end
     end
   end
